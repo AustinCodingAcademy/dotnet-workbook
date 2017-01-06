@@ -1,0 +1,18 @@
+﻿@model IEnumerable<string>
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My MVC Project</title>
+</head>
+<body>
+    <ul>
+        @foreach (string s in Model)
+        {
+            <li>@s</li>                
+        }
+    </ul>
+</body>
+</html>
