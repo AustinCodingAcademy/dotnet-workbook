@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Wk1Day2_Empty.Models.Product>
+@{ Layout = null;
+    // Our object is a string array so bring in the ViewData and 'cast' as a string [array]
+    string[] strArr = (string[]) ViewData["my_arr"];
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My MVC Project</title>
+</head>
+<body>
+    <ul>
+        @foreach (var s in Model)
+        {
+            <li>@s.Name @s.Price</li>
+        }
+    </ul>
+    <ul>
+        @foreach (string x in strArr)
+        {
+            <li>@x</li>
+        }
+    </ul>
+</body>
+</html>
