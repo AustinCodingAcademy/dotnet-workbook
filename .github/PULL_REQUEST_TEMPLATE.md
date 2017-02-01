@@ -2,7 +2,7 @@
 
 This is the rubric that your instructor will use to grade your checkpoints. Please do not edit. 
 
-## Checkpoint 1: Company/Organization Website following Wireframe
+## Checkpoint 1: LMS
 - [ ] Use of MVC Architecture: 20 points
 - [ ] There are 3 classes: "Intro", "Intermediate", and "Advanced": 10 points
 - [ ] Classes have ID's and 20 spots for students: 10 points
@@ -23,13 +23,13 @@ Specific Comments:
 
 
 
-## Checkpoint 2: Foundry Winery Website
-- [ ] Responsive navbar: 20 points
-- [ ] Responsive site (resizes to fit desktop, tablet, and mobile views): 30 points 
-- [ ] Matched layout of original site: 20 points
-- [ ] Matched font of original site: 10 points
-- [ ] Properly commented code: 10 points
-- [ ] Properly indented code: 10 points
+## Checkpoint 2: Your Alternative Version of SportsStore 
+- [ ] MVC Architecture in appropriately setup: 40 points
+- [ ] Includes Navigation: 15 points 
+- [ ] Includes Shopping Cart: 15 points
+- [ ] Includes Administration: 15 points
+- [ ] Includes Security: 15 points
+- [ ] Site is deployed (optional)
 
 Specific Comments:
 
@@ -41,12 +41,13 @@ Specific Comments:
 
 
 
-## Checkpoint 3: Personal Portfolio Website
-- [ ] Responive: 20 points
-- [ ] Evidence of Effective Use of Design Principles: 20 points
-- [ ] Links to Resume: 20 points
-- [ ] Links to at least 3 Projects: 20 points
-- [ ] Effective Communicates Desired Message ("Hire me"): 20 points
+## Checkpoint 3: Learning Team Portfolio Project
+- [ ] MVC Architecture in appropriately setup: 20 points
+- [ ] Teamwork: 20 points
+- [ ] Creativity: 15 points
+- [ ] Presentation - effective and interesting: 15 points
+- [ ] Everything works on the website: 20 points
+- [ ] Deployment: 10 points
 
 Specific Comments:
 
