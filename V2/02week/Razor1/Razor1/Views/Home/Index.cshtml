@@ -9,9 +9,10 @@
 <div>
     @foreach (var c in Model)
     {
-        
-       <div class="@(c.Category == "Watersports" ? "watersports" : null)">@c.Name - @c.Price - @c.Description</div>
-
+        if(c.Price < 300m)
+        {
+            <div class="@(c.Category == "Watersports" ? "watersports" : null)">@c.Name - @c.Price - @c.Description</div>
+        }
     }
 </div>
 

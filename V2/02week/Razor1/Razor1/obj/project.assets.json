@@ -13131,11 +13131,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\maxfi\\source\\repos\\Razor1\\Razor1\\Razor1.csproj",
+      "projectUniqueName": "C:\\Users\\maxfi\\Documents\\ACA\\dotnet-workbook\\V2\\02week\\Razor1\\Razor1\\Razor1.csproj",
       "projectName": "Razor1",
-      "projectPath": "C:\\Users\\maxfi\\source\\repos\\Razor1\\Razor1\\Razor1.csproj",
+      "projectPath": "C:\\Users\\maxfi\\Documents\\ACA\\dotnet-workbook\\V2\\02week\\Razor1\\Razor1\\Razor1.csproj",
       "packagesPath": "C:\\Users\\maxfi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maxfi\\source\\repos\\Razor1\\Razor1\\obj\\",
+      "outputPath": "C:\\Users\\maxfi\\Documents\\ACA\\dotnet-workbook\\V2\\02week\\Razor1\\Razor1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
