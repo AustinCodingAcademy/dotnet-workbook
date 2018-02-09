@@ -1,0 +1,11 @@
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\bin\Debug\netcoreapp2.0\Roster.deps.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\bin\Debug\netcoreapp2.0\Roster.runtimeconfig.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\bin\Debug\netcoreapp2.0\Roster.runtimeconfig.dev.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\bin\Debug\netcoreapp2.0\Roster.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.csprojResolveAssemblyReference.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.csproj.CoreCompileInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.AssemblyInfoInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.AssemblyInfo.cs
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\bin\Debug\netcoreapp2.0\Roster.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\Checkpoint\Roster\Roster\obj\Debug\netcoreapp2.0\Roster.pdb

@@ -1,0 +1,9 @@
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\bin\Debug\netcoreapp2.0\School.Domain.deps.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\bin\Debug\netcoreapp2.0\School.Domain.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\bin\Debug\netcoreapp2.0\School.Domain.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.csprojResolveAssemblyReference.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.csproj.CoreCompileInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.AssemblyInfoInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.AssemblyInfo.cs
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\School\School.Domain\obj\Debug\netcoreapp2.0\School.Domain.pdb
