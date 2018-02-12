@@ -1,0 +1,11 @@
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\bin\Debug\netcoreapp2.0\CableProvider.Data.deps.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\bin\Debug\netcoreapp2.0\CableProvider.Data.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.csprojResolveAssemblyReference.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.csproj.CoreCompileInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.AssemblyInfoInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.AssemblyInfo.cs
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\bin\Debug\netcoreapp2.0\CableProvider.Domain.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\bin\Debug\netcoreapp2.0\CableProvider.Data.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\bin\Debug\netcoreapp2.0\CableProvider.Domain.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Data\obj\Debug\netcoreapp2.0\CableProvider.Data.pdb

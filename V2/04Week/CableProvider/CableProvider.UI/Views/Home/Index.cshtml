@@ -1,0 +1,11 @@
+﻿@model List<CableProvider.Domain.Models.Location>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var s in Model)
+{
+    <div>@s.Id - @s.Name</div>
+}

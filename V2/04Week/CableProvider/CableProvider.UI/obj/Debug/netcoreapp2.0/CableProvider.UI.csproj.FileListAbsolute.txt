@@ -1,0 +1,15 @@
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.UI.deps.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.UI.runtimeconfig.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.UI.runtimeconfig.dev.json
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.UI.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.csprojResolveAssemblyReference.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.csproj.CoreCompileInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.AssemblyInfoInputs.cache
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.AssemblyInfo.cs
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.UI.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\obj\Debug\netcoreapp2.0\CableProvider.UI.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.Data.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.Domain.dll
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.Data.pdb
+C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.UI\bin\Debug\netcoreapp2.0\CableProvider.Domain.pdb
