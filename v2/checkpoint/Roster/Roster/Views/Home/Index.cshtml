@@ -1,0 +1,17 @@
+﻿@model List<Roster.Models.SessionStudentViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var ssvm in Model)
+{
+    <h3>@ssvm.Session.Name</h3>
+    <table>
+        <tr>
+            <td>
+                Name, Last Name of the student
+            </td>
+        </tr>
+    </table>
+}

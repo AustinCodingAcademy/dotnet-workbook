@@ -1,0 +1,16 @@
+﻿@*Must use directive to specify the name of the model class.  *@
+@model VideoStoreNetCore.ViewModels.MovieCustomerViewModel
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Movie.Name</h2>
+
+<ul>
+    @foreach(var c in Model.Customers)
+    {
+        <li>@c.Name</li>
+    }
+</ul>

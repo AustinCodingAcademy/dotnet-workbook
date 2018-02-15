@@ -1,0 +1,28 @@
+﻿@model List<School.Domain.Models.Session>
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+@foreach (var s in Model)
+{
+<div>
+    @s.Id - @s.Name
+    <a href="/home/update/@s.Id">Update</a>
+    <a href="/home/delete/@s.Id">Delete</a>
+</div>
+
+    @foreach (var st in s.Students)
+    {
+        <div>@st.Name @st.Lastname</div>
+    }
+    <hr />
+}
+
+<h2>Add a new Session Here</h2>
+<form asp-controller="Home" asp-action="Create">
+    <label>Session Name:</label>
+    <input type="text" name="Name" />
+    <button type="submit">Click to create a session</button>
+</form>

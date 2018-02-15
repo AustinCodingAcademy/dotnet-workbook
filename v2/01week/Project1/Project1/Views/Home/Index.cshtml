@@ -19,7 +19,7 @@
         {
             if (p != null)
             {
-                <li>@p.Name - @p.Price</li>
+                <li>@p.Name - @string.Format("{0:c}", p.Price)</li>
             }
         }
     </ul>

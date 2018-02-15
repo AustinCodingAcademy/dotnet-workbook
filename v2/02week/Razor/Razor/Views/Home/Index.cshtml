@@ -1,0 +1,12 @@
+﻿@model List<Razor.Models.Product>
+
+@{
+    ViewBag.Title = "Index Page";
+}
+
+<div>
+    @foreach (var c in Model)
+    {
+        <div class="@(c.Category == "Water Sport" ? "water-sport" : null)">@c.Name - @c.Price</div>
+    }
+</div>

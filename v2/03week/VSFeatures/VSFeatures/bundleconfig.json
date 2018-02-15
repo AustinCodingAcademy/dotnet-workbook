@@ -1,0 +1,13 @@
+﻿[
+  {
+    // Move the Bootstrap File to root folder
+    "outputFileName": "wwwroot/css/bootstrap.css",
+    "inputFiles": [ "bower_components/bootstrap/dist/css/bootstrap.css" ]
+
+  },
+
+  {
+    "outputFileName": "wwwroot/css/dist/style.css",
+    "inputFiles": ["wwwroot/css/layout.css", "wwwroot/css/home-index.css"]
+  }
+]
