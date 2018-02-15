@@ -1,0 +1,26 @@
+﻿@*Must use directive to specify the name of the model class.  *@
+@model VideoStoreNetCore.ViewModels.MovieCustomerViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var className = Model.Customers.Count > 4 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Movie.Name</h2>
+
+    
+
+    @if (Model.Customers.Count == 0)
+    {
+        <p>No one has rented this movie before.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach(var c in Model.Customers)
+            {
+                <li>@c.Name</li>
+
+            }
+        </ul> 
+    }
