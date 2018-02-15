@@ -10,5 +10,7 @@ namespace School.Domain.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public int SessionId { get; set; }
+
+        //public List<Session> Sessions { get; set; }
     }
 }

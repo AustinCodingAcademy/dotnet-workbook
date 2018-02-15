@@ -9,4 +9,10 @@
 {
     <div>@s.Id - @s.Name</div>
 
+    @foreach(var st in s.Students)
+    {
+        <div>@st.Name  @st.LastName</div>
+
+    }
+    <hr />
 }
