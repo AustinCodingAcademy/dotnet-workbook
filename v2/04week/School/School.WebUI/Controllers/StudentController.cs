@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using School.Domain.Models;
+using School.WebUI.Controllers;
+using School.WebUI.Services;
+
+namespace School.WebUI.Controllers
+{
+    public class StudentController : Controller
+    {
+        private StudentServices _studentService;
+        private Student updatedStudent;
+
+        public StudentController(StudentServices studentService)
+        {
+            _studentService = studentService;
+        }
+
+        // List of students
+        public IActionResult Index()
+        {
+            var students = _studentService.GetAllStudents();
+
+            return View();
+        }
+
+        // Create a new student - hard code the session id
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var students = _studentService.GetAllStudents();
+            return View(students);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Student student)
+        {
+            _studentService.CreateStudent(student);
+            return RedirectToAction("Create");
+        }
+
+        // Update
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var student = _studentService.GetSingleStudentById(id);
+            return View(student);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Student updatedSession)
+        {
+            _studentService.UpdateStudent(updatedStudent);
+            return RedirectToAction("Create");
+        }
+
+        // Delete
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _studentService.Delete(id);
+            return RedirectToAction("Create");
+        }
+    }
+}
