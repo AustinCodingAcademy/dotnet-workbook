@@ -1,9 +1,0 @@
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\bin\Debug\netcoreapp2.0\CableProvider.Domain.deps.json
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\bin\Debug\netcoreapp2.0\CableProvider.Domain.dll
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\bin\Debug\netcoreapp2.0\CableProvider.Domain.pdb
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.csprojResolveAssemblyReference.cache
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.csproj.CoreCompileInputs.cache
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.AssemblyInfoInputs.cache
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.AssemblyInfo.cs
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.dll
-C:\Users\maxfi\Documents\ACA\dotnet-workbook\V2\04Week\CableProvider\CableProvider.Domain\obj\Debug\netcoreapp2.0\CableProvider.Domain.pdb
