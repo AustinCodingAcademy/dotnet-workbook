@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using School.Domain.Models;
+using School.Domain.ViewModels;
 using School.WebUI.Services;
 
 namespace School.WebUI.Controllers
@@ -12,33 +14,46 @@ namespace School.WebUI.Controllers
     public class StudentController : Controller
     {
         private StudentServices _studentService;
+        private SessionServices _sessionService;
 
-        public StudentController(StudentServices studentService)
+        public StudentController(StudentServices studentService,
+                                 SessionServices sessionService)
         {
             _studentService = studentService;
+            _sessionService = sessionService;
         }
 
         //List of Students
         public IActionResult Index()
         {
-            var students = _studentService.GetAllStudents();
-            return View(students);
+            return View();
         }
 
         //Create a new student & Hardcode SessionID
         [HttpGet]
         public IActionResult CreateStudent()
         {
-            var students = _studentService.GetAllStudents();
+            StudentSessionViewModel viewModel = new StudentSessionViewModel();
+            viewModel.Student = new Student();
+            viewModel.AvailableSessions = _sessionService.GetAllSessions()
+                .Select(s => new SelectListItem()
+                {
+                    Value = s.Id.ToString(),
+                    Text = s.Name
+                }).ToList();
 
-            return View(students);
+            return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult CreateStudent(Student student)
         {
-            _studentService.CreateStudent(student);
-            return RedirectToAction("CreateStudent");
+
+            if (ModelState.IsValid)
+            {
+                student.SessionId = 1;
+            }
+            return View(student);
         }
 
         [HttpGet]

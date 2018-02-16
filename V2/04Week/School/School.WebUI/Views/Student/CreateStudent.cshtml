@@ -1,28 +1,26 @@
-﻿@model List<School.Domain.Models.Student>
+﻿@model StudentSessionViewModel
 
 @{
     ViewData["Title"] = "CreateStudent";
 }
 
 <h2>Create</h2>
+<form asp-controller="student" asp-action="createstudent">
+    <select asp-for="Student.SessionId" asp-items="Model.AvailableSessions">
 
-@*@foreach (var s in Model)
-{
-    <div>
-        @s.Id - @s.Name @s.LastName
-        <a href="/home/update/@s.Id">Update</a>
-        <a href="/home/delete/@s.Id">Delete</a>
+    </select>
+    <br />
 
-    </div>
+    <label asp-for="Student.Name"></label>
 
-    <hr />
-}*@
+    <input asp-for="Student.Name" />
+    <span asp-validation-for="Student.Name"></span>
+    <br />
 
-<h2>Add a new Student Here!</h2>
+    <label asp-for="Student.LastName"></label>
+    <input asp-for="Student.LastName" />
 
+    
 
-@*<form asp-controller="Home" asp-action="CreateStudent">
-    <label>Student Name:</label>
-    <input type="text" name="Name" />
-    <button type="submit">Click to create a student</button>
-</form>*@
+</form>
+
