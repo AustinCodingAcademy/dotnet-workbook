@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using School.Domain.Models;
+using School.Domain.ViewModels;
 using School.WebUI.Controllers;
 using School.WebUI.Services;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace School.WebUI.Controllers
 {
@@ -13,10 +16,12 @@ namespace School.WebUI.Controllers
     {
         private StudentServices _studentService;
         private Student updatedStudent;
+        private SessionServices _sessionService;
 
-        public StudentController(StudentServices studentService)
+        public StudentController(StudentServices studentService, SessionServices sessionService)
         {
             _studentService = studentService;
+            _sessionService = sessionService;
         }
 
         // List of students
@@ -31,8 +36,15 @@ namespace School.WebUI.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var students = _studentService.GetAllStudents();
-            return View(students);
+            StudentSessionViewModel viewModel = new StudentSessionViewModel();
+            viewModel.Student = new Student();
+            viewModel.AvailableSessions = _sessionService.GetAllSessions()
+            .Select(s => new SelectListItem() {
+                         Value = s.Id.ToString(),
+                         Text = s.Name
+        }).ToList();
+
+            return View(viewModel);
         }
 
         [HttpPost]

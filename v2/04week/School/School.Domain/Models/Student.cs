@@ -8,7 +8,7 @@ namespace School.Domain.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
         public int SessionId { get; set; }
         public object Students { get; set; }
     }

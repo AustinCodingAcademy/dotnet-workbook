@@ -21,6 +21,7 @@ namespace School.WebUI
             string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=SchoolDatabase;Integrated Security=True;Pooling=False";
             services.AddDbContext<SchoolDbContext>(option => option.UseSqlServer(connectionString));
             services.AddScoped<SessionServices>();
+            services.AddScoped<StudentServices>();
 
             services.AddMvc();
         }
