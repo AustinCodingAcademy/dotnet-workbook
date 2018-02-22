@@ -1,0 +1,13 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var e in Model)
+{
+<div>
+    @e.Id - @e.Name @e.Lastname
+</div>
+}
