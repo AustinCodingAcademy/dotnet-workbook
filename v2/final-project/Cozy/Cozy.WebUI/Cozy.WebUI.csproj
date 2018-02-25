@@ -10,6 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cozy.Data\Cozy.Data.csproj" />
+    <ProjectReference Include="..\Cozy.Domain\Cozy.Domain.csproj" />
+    <ProjectReference Include="..\Cozy.Service\Cozy.Service.csproj" />
   </ItemGroup>
 
 </Project>

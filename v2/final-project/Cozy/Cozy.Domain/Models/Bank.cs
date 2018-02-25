@@ -7,5 +7,6 @@
         public string Name { get; set; }
         public int Account { get; set; }
         public int RoutingNumber { get; set; }
+        public int UserId { get; set; }
     }
 }

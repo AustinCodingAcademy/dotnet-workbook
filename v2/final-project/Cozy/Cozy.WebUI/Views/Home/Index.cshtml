@@ -1,0 +1,24 @@
+﻿@model List<Bank>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Account #</th>
+        <th>Routing #</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.Name</td>
+            <td>@b.Account</td>
+            <td>@b.RoutingNumber</td>
+        </tr>
+
+    }
+</table>
