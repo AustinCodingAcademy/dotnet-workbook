@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Implementation\EFCore\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EZRent.Data\EZRent.Data.csproj" />
+    <ProjectReference Include="..\EZRent.Domain\EZRent.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
