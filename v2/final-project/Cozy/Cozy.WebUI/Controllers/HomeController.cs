@@ -5,17 +5,17 @@ namespace Cozy.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private IBankServices _bankServices;
+        private IPropertyServices _propertyServices;
 
-        public HomeController(IBankServices bankServices)
+        public HomeController(IPropertyServices propertyServices)
         {
-            _bankServices = bankServices;
+            _propertyServices = propertyServices;
         }
 
 
         public IActionResult Index()
         {
-            var model = _bankServices.GetAllBanks();
+            var model = _propertyServices.GetSinglePropertyById(1);
             return View(model);
         }
     }

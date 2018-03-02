@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Cozy.Data.Mock
 {
-    public class MockPropertyType
+    public static class MockPropertyType
     {
-        public List<PropertyType> list = new List<PropertyType>
+        public static List<PropertyType> list = new List<PropertyType>
         {
             new PropertyType {Id=1, Description="Apartment"},
             new PropertyType {Id=2, Description="Single Family Home"},

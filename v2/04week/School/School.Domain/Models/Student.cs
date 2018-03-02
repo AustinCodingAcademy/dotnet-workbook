@@ -10,5 +10,8 @@ namespace School.Domain.Models
         public string Name { get; set; }
         public string Lastname { get; set; }
         public int SessionId { get; set; }
+
+        // Navigator
+        public Session Session { get; set; }
     }
 }

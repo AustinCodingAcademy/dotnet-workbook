@@ -12,7 +12,12 @@ namespace Cozy.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IBankServices, MockBankServices>();
+            //Dependency Injection
+            services.AddScoped<IPropertyServices, MockPropertyServices>();
+            services.AddScoped<ITenantServices, MockTenantServices>();
+            services.AddScoped<ILeaseServices, MockLeaseServices>();
+            services.AddScoped<IPropertyServices, MockPropertyServices>();
+
             services.AddMvc();
         }
 

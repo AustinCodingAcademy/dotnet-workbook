@@ -10,6 +10,7 @@
         public string Zipcode { get; set; }
         public int PropertyTypeId { get; set; }
         public string Image { get; set; }
+        public int LandlordId { get; set; }
 
         // navigation
         public PropertyType Type { get; set; }

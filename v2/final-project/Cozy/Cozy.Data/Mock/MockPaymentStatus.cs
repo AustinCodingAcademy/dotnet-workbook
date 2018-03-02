@@ -1,22 +1,16 @@
-﻿using System;
+﻿using Cozy.Domain.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Cozy.Data.Mock
 {
-    public class MockPaymentStatus
+    public static class MockPaymentStatus
     {
-        public List<Domain.Models.PaymentStatus> list;
-
-        public MockPaymentStatus()
+        public static List<PaymentStatus> list = new List<PaymentStatus>
         {
-            list = new List<Domain.Models.PaymentStatus>
-            {
-                new Domain.Models.PaymentStatus { Id = 1, Description = "Paid"},
-                new Domain.Models.PaymentStatus { Id = 2, Description = "Processing"},
-                new Domain.Models.PaymentStatus { Id = 3, Description = "Due"},
-                new Domain.Models.PaymentStatus { Id = 4, Description = "Overdue"},
-            };
-        }
+            new PaymentStatus { Id = 1, Description = "Paid"},
+            new PaymentStatus { Id = 2, Description = "Processing"},
+            new PaymentStatus { Id = 3, Description = "Due"},
+            new PaymentStatus { Id = 4, Description = "Overdue"},
+        };
     }
 }

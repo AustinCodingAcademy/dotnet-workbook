@@ -1,4 +1,4 @@
-﻿@model List<Bank>
+﻿@model Property
 
 @{
     ViewData["Title"] = "Index";
@@ -8,17 +8,8 @@
 
 <table>
     <tr>
-        <th>Name</th>
-        <th>Account #</th>
-        <th>Routing #</th>
+        <td>@Model.Address</td>
+        <td>@Model.PropertyTypeId</td>
+        <td>@Model.Image</td>
     </tr>
-    @foreach (var b in Model)
-    {
-        <tr>
-            <td>@b.Name</td>
-            <td>@b.Account</td>
-            <td>@b.RoutingNumber</td>
-        </tr>
-
-    }
 </table>
