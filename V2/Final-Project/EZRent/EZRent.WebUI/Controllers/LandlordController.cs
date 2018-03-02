@@ -40,9 +40,13 @@ namespace EZRent.WebUI.Controllers
             var model = new LandlordPropertyLeaseViewModel();
             model.Landlord = n;
             model.PropertyList = pList;
-            
-            var lease = model.PropertyList.
 
+            // var lease = model.PropertyList.
+            List<Lease> leaseList = new List<Lease>
+            foreach (var p in pList)
+            {
+                _leaseServices.GetLeaseByProperty(p.Id)
+            }
 
 
             return View(model);
