@@ -12,9 +12,8 @@ namespace EZRent.Data.Mock
             {
                 new Landlord {Id=1, Email="gob@bluthrealty.com", FullName="Gob Bluth" },
                 new Landlord {Id=2, Email="georgesr@bluthrealty.com", FullName="George Bluth Sr." },
-                new Landlord {Id=3, Email="michaelbluth@bluthrealty.com", FullName="Michael Bluth" },
+                new Landlord {Id=3, Email="michaelbluth@bluthrealty.com", FullName="Michael Bluth" }
             };
         }
 
     }
-}

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace EZRent.Service.Implementation.Mock
 {
-    public class MockPaymentServices :IPaymentServices
+    public class MockPaymentServices : IPaymentServices
     {
         private List<Payment> _context;
 
@@ -61,3 +61,4 @@ namespace EZRent.Service.Implementation.Mock
             return updatedPayment;
         }
     }
+}

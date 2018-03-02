@@ -39,6 +39,7 @@ namespace EZRent.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }

@@ -61,3 +61,4 @@ namespace EZRent.Service.Implementation.Mock
             return updatedProperty;
         }
     }
+}

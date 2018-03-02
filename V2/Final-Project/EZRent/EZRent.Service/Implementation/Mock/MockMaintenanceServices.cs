@@ -10,56 +10,57 @@ namespace EZRent.Service.Implementation.Mock
 {
     public class MockMaintenanceServices : IMaintenanceServices
     {
-     private List<Maintenance> _context;
+        private List<Maintenance> _context;
 
-    public MockMaintenanceServices()
-    {
-        _context = MockMaintenance.list;
-    }
-
-    public Maintenance CreateMaintenance(Maintenance newMaintenance)
-    {
-        int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
-
-        newMaintenance.Id = largestId + 1;
-        _context.Add(newMaintenance);
-
-        return newMaintenance;
-    }
-
-    public bool DeleteMaintenance(int id)
-    {
-        Maintenance toBeDeletedMaintenance = GetSingleMaintenanceById(id);
-        _context.Remove(toBeDeletedMaintenance);
-
-        toBeDeletedMaintenance = GetSingleMaintenanceById(id);
-        if (toBeDeletedMaintenance == null)
+        public MockMaintenanceServices()
         {
-            return true;
+            _context = MockMaintenance.list;
         }
-        else
+
+        public Maintenance CreateMaintenance(Maintenance newMaintenance)
         {
-            return false;
+            int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
+
+            newMaintenance.Id = largestId + 1;
+            _context.Add(newMaintenance);
+
+            return newMaintenance;
         }
-    }
 
-    public List<Maintenance> GetAllMaintenances()
-    {
-        return _context;
-    }
+        public bool DeleteMaintenance(int id)
+        {
+            Maintenance toBeDeletedMaintenance = GetSingleMaintenanceById(id);
+            _context.Remove(toBeDeletedMaintenance);
 
-    public Maintenance GetSingleMaintenanceById(int id)
-    {
-        return _context.SingleOrDefault(b => b.Id == id);
-    }
+            toBeDeletedMaintenance = GetSingleMaintenanceById(id);
+            if (toBeDeletedMaintenance == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-    public Maintenance UpdateMaintenance(Maintenance updatedMaintenance)
-    {
-        Maintenance oldMaintenance = GetSingleMaintenanceById(updatedMaintenance.Id);
+        public List<Maintenance> GetAllMaintenances()
+        {
+            return _context;
+        }
 
-        _context.Remove(oldMaintenance);
-        _context.Add(updatedMaintenance);
+        public Maintenance GetSingleMaintenanceById(int id)
+        {
+            return _context.SingleOrDefault(b => b.Id == id);
+        }
 
-        return updatedMaintenance;
+        public Maintenance UpdateMaintenance(Maintenance updatedMaintenance)
+        {
+            Maintenance oldMaintenance = GetSingleMaintenanceById(updatedMaintenance.Id);
+
+            _context.Remove(oldMaintenance);
+            _context.Add(updatedMaintenance);
+
+            return updatedMaintenance;
+        }
     }
 }

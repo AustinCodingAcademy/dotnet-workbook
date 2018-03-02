@@ -7,8 +7,9 @@ namespace EZRent.Service.Interface
 {
     public interface ILeaseServices
     {
-        List<Lease> GetAllLeases();
-        Lease GetSingleLeaseById(int id);
+        Lease GetLeaseByProperty(int propertyId);
+        Lease GetLeaseByTenantId(int tenantId);
+        Lease GetLeaseByPropertyAndTenantId(int propertyId, int tenantId);
 
         // Create
         Lease CreateLease(Lease newLease);
@@ -16,6 +17,6 @@ namespace EZRent.Service.Interface
         // Update
         Lease UpdateLease(Lease updatedLease);
         // Delete
-        bool DeleteLease(int id);
+        bool DeleteLease(int propertyId, int tenantId);
     }
 }

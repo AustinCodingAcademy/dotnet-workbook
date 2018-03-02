@@ -1,0 +1,41 @@
+﻿@model TenantBanksViewModel
+@{
+    ViewData["Title"] = "Bank";
+}
+
+<h2>Bank</h2>
+
+<table>
+    <tr>
+        <th>Bank</th>
+        <th>Account #</th>
+        <th>Routing #</th>
+    </tr>
+    @foreach(var b in Model.Banks)
+    {
+    <tr>
+        <td>@b.BankName</td>
+        <td>@b.AccountNumber</td>
+        <td>@b.RoutingNumber</td>
+    </tr>
+     }
+</table>
+<hr />
+
+<div>
+    <h2>Add a new bank</h2>
+    <form asp-controller="tenant" asp-action="createBank">
+        <label for="bank-name">Name of the Bank</label>
+        <input type="text" id="bank-name" name="BankName" />
+        <br />
+        <label for="account-number">Account Number</label>
+        <input type="text" id="account-number" name="AccountNumber" />
+        <br />
+        <label for="routing-number">Routing Number</label>
+        <input type="text" id="routing-number" name="RoutingNumber" />
+        <br />
+        <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
+
+        <button type="submit">Add new bank</button>
+    </form>
+</div>

@@ -24,8 +24,7 @@ namespace EZRent.WebUI.Controllers
 
         public IActionResult Index()
         {
-            var model = _bankServices.GetAllBanks();
-            return View(model);
+            return View();
         }
     }
 }

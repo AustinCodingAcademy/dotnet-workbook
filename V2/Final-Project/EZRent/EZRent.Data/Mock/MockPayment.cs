@@ -16,4 +16,3 @@ namespace EZRent.Data.Mock
             };
         }
     }
-}

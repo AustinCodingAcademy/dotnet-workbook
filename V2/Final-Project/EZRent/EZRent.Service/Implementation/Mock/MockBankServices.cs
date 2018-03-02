@@ -43,19 +43,14 @@ namespace EZRent.Service.Implementation.Mock
             }
         }
 
-        public List<Bank> GetAllBanks()
-        {
-            return _context;
-        }
-
         public Bank GetSingleBankById(int id)
         {
             return _context.SingleOrDefault(b => b.Id == id);
         }
 
-        public Bank GetSingleBankByUserId(int id)
+        public List<Bank> GetBanksByTenantId(int id)
         {
-            return _context.SingleOrDefault(b => b.UserId == id);
+            return _context.Where(b => b.UserId == id).ToList();
         }
 
         public Bank UpdateBank(Bank updatedBank)

@@ -19,20 +19,17 @@ namespace EZRent.Service.Implementation.Mock
 
         public Lease CreateLease(Lease newLease)
         {
-            int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
-
-            newLease.Id = largestId + 1;
             _context.Add(newLease);
 
             return newLease;
         }
 
-        public bool DeleteLease(int id)
+        public bool DeleteLease(int propertyId, int tenantId)
         {
-            Lease toBeDeletedLease = GetSingleLeaseById(id);
+            Lease toBeDeletedLease = GetLeaseByPropertyAndTenantId(propertyId, tenantId);
             _context.Remove(toBeDeletedLease);
 
-            toBeDeletedLease = GetSingleLeaseById(id);
+            toBeDeletedLease = GetLeaseByPropertyAndTenantId(propertyId, tenantId);
             if (toBeDeletedLease == null)
             {
                 return true;
@@ -43,24 +40,37 @@ namespace EZRent.Service.Implementation.Mock
             }
         }
 
+        public Lease GetLeaseByPropertyAndTenantId(int propertyId, int tenantId)
+        {
+            return _context.SingleOrDefault(l => l.PropertyId == propertyId && l.TenantId == tenantId);
+        }
+
         public List<Lease> GetAllLeases()
         {
             return _context;
         }
 
-        public Lease GetSingleLeaseById(int id)
+        public Lease GetLeaseByProperty(int propertyId)
         {
-            return _context.SingleOrDefault(b => b.Id == id);
+            return _context.SingleOrDefault(a => a.PropertyId == propertyId);
         }
+
+    
+        public Lease GetLeaseByTenantId(int tenantId)
+        {
+            return _context.Where(b => b.End >= DateTime.Now).SingleOrDefault(g => g.TenantId == tenantId);
+        }
+
 
         public Lease UpdateLease(Lease updatedLease)
         {
-            Lease oldLease = GetSingleLeaseById(updatedLease.Id);
+            Lease oldLease = GetLeaseByProperty(updatedLease.PropertyId);
 
             _context.Remove(oldLease);
             _context.Add(updatedLease);
 
             return updatedLease;
         }
+
     }
 }

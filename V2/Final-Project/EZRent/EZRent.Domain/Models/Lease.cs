@@ -6,7 +6,6 @@ namespace EZRent.Domain.Models
 {
     public class Lease
     {
-        public int Id { get; set; }
         public int PropertyId { get; set; }
         public int TenantId { get; set; }
         public DateTime Start { get; set; }

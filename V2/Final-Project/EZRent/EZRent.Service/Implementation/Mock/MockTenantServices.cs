@@ -10,56 +10,57 @@ namespace EZRent.Service.Implementation.Mock
 {
     public class MockTenantServices : ITenantServices
     {
-     private List<Tenant> _context;
+        private List<Tenant> _context;
 
-    public MockTenantServices()
-    {
-        _context = MockTenant.list;
-    }
-
-    public Tenant CreateTenant(Tenant newTenant)
-    {
-        int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
-
-        newTenant.Id = largestId + 1;
-        _context.Add(newTenant);
-
-        return newTenant;
-    }
-
-    public bool DeleteTenant(int id)
-    {
-        Tenant toBeDeletedTenant = GetSingleTenantById(id);
-        _context.Remove(toBeDeletedTenant);
-
-        toBeDeletedTenant = GetSingleTenantById(id);
-        if (toBeDeletedTenant == null)
+        public MockTenantServices()
         {
-            return true;
+            _context = MockTenant.list;
         }
-        else
+
+        public Tenant CreateTenant(Tenant newTenant)
         {
-            return false;
+            int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
+
+            newTenant.Id = largestId + 1;
+            _context.Add(newTenant);
+
+            return newTenant;
         }
-    }
 
-    public List<Tenant> GetAllTenants()
-    {
-        return _context;
-    }
+        public bool DeleteTenant(int id)
+        {
+            Tenant toBeDeletedTenant = GetSingleTenantById(id);
+            _context.Remove(toBeDeletedTenant);
 
-    public Tenant GetSingleTenantById(int id)
-    {
-        return _context.SingleOrDefault(b => b.Id == id);
-    }
+            toBeDeletedTenant = GetSingleTenantById(id);
+            if (toBeDeletedTenant == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-    public Tenant UpdateTenant(Tenant updatedTenant)
-    {
-        Tenant oldTenant = GetSingleTenantById(updatedTenant.Id);
+        public List<Tenant> GetAllTenants()
+        {
+            return _context;
+        }
 
-        _context.Remove(oldTenant);
-        _context.Add(updatedTenant);
+        public Tenant GetSingleTenantById(int id)
+        {
+            return _context.SingleOrDefault(b => b.Id == id);
+        }
 
-        return updatedTenant;
+        public Tenant UpdateTenant(Tenant updatedTenant)
+        {
+            Tenant oldTenant = GetSingleTenantById(updatedTenant.Id);
+
+            _context.Remove(oldTenant);
+            _context.Add(updatedTenant);
+
+            return updatedTenant;
+        }
     }
 }

@@ -14,6 +14,5 @@ namespace EZRent.Data.Mock
                 new Maintenance {Id=2, Description="Food's getting warm quickly", DateCreated= new DateTime(2017, 02, 19), StatusId=2, Title="Broken Refrigerator", PropertyId=2},
                 new Maintenance {Id=3, Description="Water heater leaking", DateCreated= new DateTime(2018, 02, 11), StatusId=3, Title="Busted Water Heater", PropertyId=3}
             };
-        }
     }
 }
