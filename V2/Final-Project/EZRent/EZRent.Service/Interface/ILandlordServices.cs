@@ -8,6 +8,8 @@ namespace EZRent.Service.Interface
     {
         List<Landlord> GetAllLandlords();
         Landlord GetSingleLandlordById(int id);
+        
+        
 
         // Create
         Landlord CreateLandlord(Landlord newLandlord);

@@ -53,6 +53,7 @@ namespace EZRent.Service.Implementation.Mock
             return _context.SingleOrDefault(b => b.Id == id);
         }
 
+
         public Landlord UpdateLandlord(Landlord updatedLandlord)
         {
             Landlord oldLandlord = GetSingleLandlordById(updatedLandlord.Id);
