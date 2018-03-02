@@ -6,9 +6,8 @@ namespace Cozy.Service.Interface
     public interface IBankServices
     {
         // Read
-        List<Bank> GetAllBanks();
         Bank GetSingleBankById(int id);
-        Bank GetSingleBankByUserId(int userId);
+        List<Bank> GetBanksByTenantId(int id);
 
         // Create
         Bank CreateBank(Bank newBank);

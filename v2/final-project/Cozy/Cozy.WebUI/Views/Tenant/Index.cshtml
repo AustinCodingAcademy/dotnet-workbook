@@ -1,8 +1,11 @@
 ﻿@model TenantPropertyViewModel
 
 <div>
-    <!-- Tenant Name -->
+    @Model.Tenant.Name
 </div>
 <div>
-    <!-- Property address and city zipcode-->
+    @Model.Property.Address, @Model.Property.City
+</div>
+<div>
+    <a asp-controller="tenant" asp-action="bank" asp-route-id="@Model.Tenant.Id">Bank Account</a>
 </div>

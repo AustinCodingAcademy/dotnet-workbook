@@ -17,6 +17,7 @@ namespace Cozy.WebUI
             services.AddScoped<ITenantServices, MockTenantServices>();
             services.AddScoped<ILeaseServices, MockLeaseServices>();
             services.AddScoped<IPropertyServices, MockPropertyServices>();
+            services.AddScoped<IBankServices, MockBankServices>(); 
 
             services.AddMvc();
         }
@@ -29,6 +30,7 @@ namespace Cozy.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }

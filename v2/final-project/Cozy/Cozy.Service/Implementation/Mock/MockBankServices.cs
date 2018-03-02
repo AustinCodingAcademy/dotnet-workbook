@@ -41,19 +41,14 @@ namespace Cozy.Service.Implementation.Mock
 
         }
 
-        public List<Bank> GetAllBanks()
+        public List<Bank> GetBanksByTenantId(int id)
         {
-            return _context;
+            return _context.Where(b => b.UserId == id).ToList();
         }
 
         public Bank GetSingleBankById(int id)
         {
             return _context.SingleOrDefault(b => b.Id == id);
-        }
-
-        public Bank GetSingleBankByUserId(int userId)
-        {
-            return _context.SingleOrDefault(b => b.UserId == userId);
         }
 
         public Bank UpdateBank(Bank updatedBank)
