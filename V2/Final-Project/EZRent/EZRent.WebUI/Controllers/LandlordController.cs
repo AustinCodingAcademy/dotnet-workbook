@@ -41,15 +41,22 @@ namespace EZRent.WebUI.Controllers
             model.Landlord = n;
             model.PropertyList = pList;
 
-            // var lease = model.PropertyList.
-            List<Lease> leaseList = new List<Lease>
+            List<Lease> leaseList = new List<Lease>();
             foreach (var p in pList)
             {
-                _leaseServices.GetLeaseByProperty(p.Id)
+                leaseList.Add(_leaseServices.GetLeaseByProperty(p.Id));
             }
+
+            model.LeaseList = leaseList;
 
 
             return View(model);
+        }
+
+        public IActionResult CreateProperty(Property newProperty)
+        {
+            _propertyServices.CreateProperty(newProperty);
+            return RedirectToAction("Index", new { id = newProperty.LandlordId });
         }
     }
 }

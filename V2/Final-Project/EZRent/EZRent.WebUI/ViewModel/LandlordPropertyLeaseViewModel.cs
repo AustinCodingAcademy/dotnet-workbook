@@ -10,6 +10,6 @@ namespace EZRent.WebUI.ViewModel
     {
         public Landlord Landlord { get; set; }
         public List<Property> PropertyList { get; set; }
-        public bool Leased { get; set; }
+        public List<Lease> LeaseList { get; set; }
     }
 }
