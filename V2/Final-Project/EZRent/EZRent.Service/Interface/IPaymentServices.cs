@@ -9,6 +9,7 @@ namespace EZRent.Service.Interface
     {
         List<Payment> GetAllPayments();
         Payment GetSinglePaymentById(int id);
+        List<Payment> GetPaymentsByPropertyID(int id);
 
         // Create
         Payment CreatePayment(Payment newPayment);

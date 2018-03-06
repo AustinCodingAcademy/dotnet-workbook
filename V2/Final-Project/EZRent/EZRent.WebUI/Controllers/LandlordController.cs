@@ -37,9 +37,10 @@ namespace EZRent.WebUI.Controllers
 
             List<Property> pList = _propertyServices.GetPropertiesByLandlordId(n.Id);
 
-            var model = new LandlordPropertyLeaseViewModel();
+            var model = new LandlordPropertyLeasePaymentViewModel();
             model.Landlord = n;
             model.PropertyList = pList;
+            
 
             List<Lease> leaseList = new List<Lease>();
             foreach (var p in pList)
@@ -47,8 +48,14 @@ namespace EZRent.WebUI.Controllers
                 leaseList.Add(_leaseServices.GetLeaseByProperty(p.Id));
             }
 
-            model.LeaseList = leaseList;
+            List<Payment> payList = new List<Payment>();
+            foreach(var y in pList)
+            {
+                payList.Add(_paymentServices.GetPaymentByPropertyID(y.Id));
+            }
 
+            model.LeaseList = leaseList;
+            model.PayList = payList;
 
             return View(model);
         }

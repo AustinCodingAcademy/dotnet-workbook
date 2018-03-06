@@ -1,4 +1,4 @@
-﻿@model LandlordPropertyLeaseViewModel
+﻿@model LandlordPropertyLeasePaymentViewModel
 
     <h2>Welcome @Model.Landlord.FullName!</h2>
 
@@ -11,6 +11,7 @@
         @p.City ,
         @p.State ,
         @p.Zipcode
+        @p.Id
         </div>
         <div>
             @p.Type
@@ -41,3 +42,23 @@
             <button type="submit">Add new property</button>
         </form>
     </div>
+<div>
+    @foreach(var l in Model.LeaseList)
+    {
+        <div>
+            @l.TenantId at Property @l.PropertyId
+        </div>
+    }
+</div>
+
+<div>
+    @foreach(var y in Model.PayList)
+    {
+        <div>
+            @y.Amount
+            @y.DatePosted
+            @y.Status
+        </div>
+
+    }
+</div>
