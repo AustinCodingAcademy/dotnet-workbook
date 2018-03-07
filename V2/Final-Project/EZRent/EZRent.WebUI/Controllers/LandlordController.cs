@@ -31,6 +31,17 @@ namespace EZRent.WebUI.Controllers
             _leaseServices = leaseServices;
         }
 
+        public IActionResult Property(int id)
+        {
+            var model = new PropertyViewModel();
+            model.Property = _propertyServices.GetSinglePropertyById(id);
+            model.Landlord = _landlordServices.GetSingleLandlordById(model.Property.LandlordId);
+            model.Tenant = _tenantServices.GetSingleTenantById(model.Property.CurrentTenantId);
+            model.Payments = _paymentServices.GetPaymentsByPropertyID(model.Property.Id);
+
+            return View(model);
+        }
+
         public IActionResult Index()
         {
             var n = _landlordServices.GetSingleLandlordById(1);
@@ -48,14 +59,7 @@ namespace EZRent.WebUI.Controllers
                 leaseList.Add(_leaseServices.GetLeaseByProperty(p.Id));
             }
 
-            List<Payment> payList = new List<Payment>();
-            foreach(var y in pList)
-            {
-                payList.Add(_paymentServices.GetPaymentByPropertyID(y.Id));
-            }
-
             model.LeaseList = leaseList;
-            model.PayList = payList;
 
             return View(model);
         }

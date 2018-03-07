@@ -11,14 +11,14 @@
         <th>Account #</th>
         <th>Routing #</th>
     </tr>
-    @foreach(var b in Model.Banks)
+    @foreach (var b in Model.Banks)
     {
-    <tr>
-        <td>@b.BankName</td>
-        <td>@b.AccountNumber</td>
-        <td>@b.RoutingNumber</td>
-    </tr>
-     }
+        <tr>
+            <td>@b.BankName</td>
+            <td>@b.AccountNumber</td>
+            <td>@b.RoutingNumber</td>
+        </tr>
+    }
 </table>
 <hr />
 
@@ -39,3 +39,8 @@
         <button type="submit">Add new bank</button>
     </form>
 </div>
+
+
+@section Navbar{
+    @Html.Partial("TenantNavBar", Model.Tenant.Id)
+}

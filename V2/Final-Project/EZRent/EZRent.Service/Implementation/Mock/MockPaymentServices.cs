@@ -48,7 +48,7 @@ namespace EZRent.Service.Implementation.Mock
 
         public List<Payment> GetPaymentsByPropertyID(int id)
         {
-            return _context.(b => b.PropertyId == id);
+            return _context.Where(b => b.PropertyId == id).ToList();
         }
 
         public Payment GetSinglePaymentById(int id)

@@ -1,0 +1,20 @@
+﻿@model int
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a asp-controller="landlord" asp-action="index">Home</a></li>
+            <li><a asp-controller="landlord" asp-action="payment" asp-route-id="@Model">Payment</a></li>
+            <li><a asp-controller="landlord" asp-action="maintenance" asp-route-id="@Model">Maintenance</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a asp-controller="landlord" asp-action="index">Home</a></li>
+            <li><a asp-controller="landlord" asp-action="payment" asp-route-id="@Model">Payment</a></li>
+            <li><a asp-controller="landlord" asp-action="maintenance" asp-route-id="@Model">Maintenance</a></li>
+        </ul>
+    </div>
+</nav>
+
+@*Be sure to set up correct partial section to direct to for each*@

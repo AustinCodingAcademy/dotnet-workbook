@@ -2,63 +2,65 @@
 
     <h2>Welcome @Model.Landlord.FullName!</h2>
 
-    <div>Your Properties: <br />
-
-    
-    @foreach(var p in Model.PropertyList)
-    {
-        <div>@p.Address
-        @p.City ,
-        @p.State ,
-        @p.Zipcode
-        @p.Id
-        </div>
-        <div>
-            @p.Type
-        </div>
-    }
-    </div>
-
     <div>
-        <h2>Add a new property</h2>
-        <form asp-controller="landlord" asp-action="createProperty">
-            <label for="property-address">Address of the Property</label>
-            <input type="text" id="property-address" name="Address" />
-            <br />
-            <label for="City">City</label>
-            <input type="text" id="City" name="City" />
-            <br />
-            <label for="State">State</label>
-            <input type="text" id="State" name="State" />
-            <br />
-            <label for="Zipcode">Zipcode</label>
-            <input type="text" id="Zipcode" name="Zipcode" />
-            <br />
-            <label for="PropertyType">Property Type</label>
-            <input type="text" id="PropertyType" name="PropertyType" />
-            <br />
-            <input type="hidden" name="UserId" value="@Model.Landlord.Id" />
+        Your Properties: <br />
 
-            <button type="submit">Add new property</button>
-        </form>
-    </div>
-<div>
-    @foreach(var l in Model.LeaseList)
-    {
-        <div>
-            @l.TenantId at Property @l.PropertyId
+        @foreach (var p in Model.PropertyList)
+            {
+          <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="@p.Image">
+                        <span class="card-title">My Property</span>
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <a asp-controller="Landlord" asp-action="Property" asp-route-id="@p.Id">
+                            @p.Address
+                            @p.City ,
+                            @p.State ,
+                            @p.Zipcode
+                        </a>
+                        <div>
+                            @p.Type
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a asp-controller="landlord" asp-action="property" asp-route-id="@p.Id">View Payments</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-</div>
-
-<div>
-    @foreach(var y in Model.PayList)
-    {
-        <div>
-            @y.Amount
-            @y.DatePosted
-            @y.Status
+            }
         </div>
 
-    }
-</div>
+        <div>
+            <h2>Add a new property</h2>
+            <form asp-controller="landlord" asp-action="createProperty">
+                <label for="property-address">Address of the Property</label>
+                <input type="text" id="property-address" name="Address" />
+                <br />
+                <label for="City">City</label>
+                <input type="text" id="City" name="City" />
+                <br />
+                <label for="State">State</label>
+                <input type="text" id="State" name="State" />
+                <br />
+                <label for="Zipcode">Zipcode</label>
+                <input type="text" id="Zipcode" name="Zipcode" />
+                <br />
+                <label for="PropertyType">Property Type</label>
+                <input type="text" id="PropertyType" name="PropertyType" />
+                <br />
+                <input type="hidden" name="UserId" value="@Model.Landlord.Id" />
+
+                <button type="submit">Add new property</button>
+            </form>
+        </div>
+
+        @section Navbar{
+        @Html.Partial("LandlordNavBar", Model.Landlord.Id)
+        }

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace EZRent.WebUI.ViewModel
 {
-    public class LandlordPropertyLeasePaymentViewModel
+    public class PropertyViewModel
     {
         public Landlord Landlord { get; set; }
-        public List<Property> PropertyList { get; set; }
-        public List<Lease> LeaseList { get; set; }
-        public List<Payment> PayList { get; set; }
         public Tenant Tenant { get; set; }
+        public Property Property { get; set; }
+        public List<Payment> Payments { get; set; }
     }
 }

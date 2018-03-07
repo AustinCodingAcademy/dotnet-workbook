@@ -12,8 +12,9 @@ namespace EZRent.Domain.Models
         public string State { get; set; }
         public string Zipcode { get; set; }
         public int PropertyTypeId { get; set; }
-        string Image { get; set; }
         public int LandlordId { get; set; }
+        public int CurrentTenantId { get; set; }
+        public string Image { get; set; }
         // navigation
         public PropertyType Type { get; set; }
 
