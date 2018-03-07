@@ -17,7 +17,9 @@ namespace Cozy.WebUI
             services.AddScoped<ITenantServices, MockTenantServices>();
             services.AddScoped<ILeaseServices, MockLeaseServices>();
             services.AddScoped<IPropertyServices, MockPropertyServices>();
-            services.AddScoped<IBankServices, MockBankServices>(); 
+            services.AddScoped<IBankServices, MockBankServices>();
+            services.AddScoped<ILandlordServices, MockLandlordServices>();
+            services.AddScoped<IPaymentServices, MockPaymentServices>();
 
             services.AddMvc();
         }

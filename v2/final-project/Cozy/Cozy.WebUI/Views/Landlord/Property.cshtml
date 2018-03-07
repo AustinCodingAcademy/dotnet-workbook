@@ -1,0 +1,28 @@
+﻿@model PropertyViewModel
+
+<div>
+    @Model.Property.Address, @Model.Property.City, @Model.Property.State @Model.Property.Zipcode
+</div>
+<div>
+    <p>Current tenant: @Model.Tenant.Name</p>
+</div>
+<div>
+    <p>Payments</p>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Bank</th>
+            <th>Posted</th>
+        </tr>
+        @foreach (var item in Model.Payments)
+        {
+        <tr>
+            <td>@item.Amount</td>
+            <td>@item.StatusId</td>
+            <td>@item.BankId</td>
+            <td>@item.Posted</td>
+        </tr>
+        }
+    </table>
+</div>

@@ -11,8 +11,10 @@
         public int PropertyTypeId { get; set; }
         public string Image { get; set; }
         public int LandlordId { get; set; }
+        public int CurrentTenantId { get; set; }
 
         // navigation
         public PropertyType Type { get; set; }
+
     }
 }

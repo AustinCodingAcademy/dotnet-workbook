@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cozy.Domain", "Cozy.Domain\Cozy.Domain.csproj", "{55BDDCF5-4D4C-4EE6-B5CE-4CBECB9AFCD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cozy.Domain", "Cozy.Domain\Cozy.Domain.csproj", "{55BDDCF5-4D4C-4EE6-B5CE-4CBECB9AFCD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cozy.Data", "Cozy.Data\Cozy.Data.csproj", "{F918DE60-3B63-4F2B-B412-333F472BE0B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cozy.Data", "Cozy.Data\Cozy.Data.csproj", "{F918DE60-3B63-4F2B-B412-333F472BE0B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cozy.Service", "Cozy.Service\Cozy.Service.csproj", "{641EA105-62CF-4A5A-9A15-15BA9A62975B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cozy.Service", "Cozy.Service\Cozy.Service.csproj", "{641EA105-62CF-4A5A-9A15-15BA9A62975B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cozy.WebUI", "Cozy.WebUI\Cozy.WebUI.csproj", "{0197D403-A93C-4A61-9794-D79C4A7DE361}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cozy.WebUI", "Cozy.WebUI\Cozy.WebUI.csproj", "{0197D403-A93C-4A61-9794-D79C4A7DE361}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

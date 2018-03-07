@@ -39,3 +39,7 @@
         <button type="submit">Add new bank</button>
     </form>
 </div>
+
+@section Navbar {
+    @Html.Partial("TenantNavBar", Model.Tenant.Id)
+}

@@ -1,1 +1,28 @@
-﻿
+﻿@model LandlordPropertyViewModel
+
+<div>
+    Welcome back, @Model.Landlord.FirstName
+</div>
+
+<p>Property list</p>
+<table>
+    <tr>
+        <th>
+            Address
+        </th>
+        <th>
+            Type
+        </th>
+    </tr>
+    @foreach (var p in Model.Properties)
+    {
+    <tr>
+        <td>
+            <a asp-controller="landlord" asp-action="property" asp-route-id="@p.Id">
+                @p.Address, @p.City, @p.State @p.Zipcode
+            </a>
+        </td>
+        <td>@p.PropertyTypeId</td>
+    </tr>
+    }
+</table>
