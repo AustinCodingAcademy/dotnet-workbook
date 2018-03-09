@@ -19,7 +19,7 @@ namespace Cozy.Service.Implementation.Mock
 
         public Property CreateProperty(Property newProperty)
         {
-            int largestId = _context.OrderByDescending(p => p.Id).SingleOrDefault().Id;
+            int largestId = _context.OrderByDescending(p => p.Id).FirstOrDefault().Id;
 
             newProperty.Id = largestId + 1;
             _context.Add(newProperty);

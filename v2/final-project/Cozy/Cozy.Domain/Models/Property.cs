@@ -1,4 +1,6 @@
-﻿namespace Cozy.Domain.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Cozy.Domain.Models
 {
     public class Property
     {

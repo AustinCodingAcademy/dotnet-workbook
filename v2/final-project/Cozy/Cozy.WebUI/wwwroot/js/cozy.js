@@ -1,2 +1,7 @@
-﻿// jQuery Selector
-$('.button-collapse').sideNav();
+﻿$(document).ready(function () {
+    $('.dropdown-button').dropdown();
+    $('.button-collapse').sideNav();
+})
+
+
+

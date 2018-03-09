@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Cozy.Service\Cozy.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\properties\" />
+  </ItemGroup>
+
 </Project>

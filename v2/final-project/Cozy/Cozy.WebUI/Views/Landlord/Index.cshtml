@@ -13,16 +13,46 @@
         <th>
             Type
         </th>
+        <th>
+            Image
+        </th>
     </tr>
     @foreach (var p in Model.Properties)
     {
-    <tr>
-        <td>
-            <a asp-controller="landlord" asp-action="property" asp-route-id="@p.Id">
-                @p.Address, @p.City, @p.State @p.Zipcode
-            </a>
-        </td>
-        <td>@p.PropertyTypeId</td>
-    </tr>
+        <tr>
+            <td>
+                <a asp-controller="landlord" asp-action="property" asp-route-id="@p.Id">
+                    @p.Address, @p.City, @p.State @p.Zipcode
+                </a>
+            </td>
+            <td>@p.PropertyTypeId</td>
+            <td>
+                <img src="@p.Image"/>
+            </td>
+        </tr>
     }
 </table>
+
+<div>
+    <h3>Create a Property</h3>
+    <form asp-controller="landlord" asp-action="CreateProperty" enctype="multipart/form-data">
+        <label for="address">Address</label>
+        <input id="address" name="Property.Address" />
+        <br />
+        <label>Image</label>
+        <input type="file" name="File"/>
+        <br />
+        <input type="hidden" name="Property.LandlordId" value="@Model.Landlord.Id"/>
+        <button class="btn">Submit</button>
+    </form>
+</div>
+
+@{ 
+    LandlordNavBarViewModel viewModel = new LandlordNavBarViewModel();
+    viewModel.LandlordId = Model.Landlord.Id;
+    viewModel.Properties = Model.Properties;
+}
+
+@section Navbar {
+    @Html.Partial("_NavBar", viewModel)
+}

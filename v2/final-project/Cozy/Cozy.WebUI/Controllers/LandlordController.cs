@@ -1,7 +1,11 @@
 ﻿using Cozy.Domain.Models;
 using Cozy.Service.Interface;
 using Cozy.WebUI.ViewModel;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Cozy.WebUI.Controllers
 {
@@ -12,18 +16,21 @@ namespace Cozy.WebUI.Controllers
         private ITenantServices _tenantServices;
         private IPaymentServices _paymentServices;
         private ILeaseServices _leaseServices;
+        private IHostingEnvironment _environment;
 
         public LandlordController(ILandlordServices landlordServices,
             IPropertyServices propertyServices,
             ITenantServices tenantServices,
             IPaymentServices paymentServices,
-            ILeaseServices leaseServices)
+            ILeaseServices leaseServices,
+            IHostingEnvironment environment)
         {
             _landlordServices = landlordServices;
             _propertyServices = propertyServices;
             _tenantServices = tenantServices;
             _paymentServices = paymentServices;
             _leaseServices = leaseServices;
+            _environment = environment;
         }
 
         public IActionResult Index()
@@ -46,9 +53,33 @@ namespace Cozy.WebUI.Controllers
             return View(model);
         }
 
-        public IActionResult CreateProperty(Property newProperty)
+        public async Task<IActionResult> CreateProperty(PropertyFormViewModel viewModel)
         {
-            _propertyServices.CreateProperty(newProperty);
+            if(ModelState.IsValid)
+            {
+                // separate the Property and File
+                Property newProperty = viewModel.Property;
+                IFormFile file = viewModel.File;
+
+                if(file.Length > 0) //weight Kb - there is an actual file being uploaded
+                {
+                    // C:\Users\erikp\Documents\aca\dotnet-workbook\v2\final-project\Cozy\Cozy.WebUI\wwwroot\images\properties\
+                    string storageFolder = Path.Combine(_environment.WebRootPath, "images/properties");
+
+                    // C:\Users\erikp\Documents\aca\dotnet-workbook\v2\final-project\Cozy\Cozy.WebUI\wwwroot\images\properties\<fileName>.jpg
+                    using (var fileStream = new FileStream(Path.Combine(storageFolder, file.FileName), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    } // remove the item from memory in a efficient way
+
+                    // we have a image stored in the images/property folder
+
+                    newProperty.Image = $"images/properties/{file.FileName}";
+
+                    _propertyServices.CreateProperty(newProperty);
+                }
+
+            }
 
             return RedirectToAction("index");
         }

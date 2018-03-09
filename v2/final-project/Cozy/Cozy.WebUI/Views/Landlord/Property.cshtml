@@ -17,12 +17,16 @@
         </tr>
         @foreach (var item in Model.Payments)
         {
-        <tr>
-            <td>@item.Amount</td>
-            <td>@item.StatusId</td>
-            <td>@item.BankId</td>
-            <td>@item.Posted</td>
-        </tr>
+            <tr>
+                <td>@item.Amount</td>
+                <td>@item.StatusId</td>
+                <td>@item.BankId</td>
+                <td>@item.Posted</td>
+            </tr>
         }
     </table>
 </div>
+
+@section Navbar {
+    @Html.Partial("_NavBar", Model.Tenant.Id)
+}
