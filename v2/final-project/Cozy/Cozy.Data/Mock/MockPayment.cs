@@ -11,6 +11,10 @@ namespace Cozy.Data.Mock
             new Payment {Id=1, Amount=350, BankId=1, Posted = DateTime.Now, PropertyId=1, StatusId=2},
             new Payment {Id=2, Amount=350, BankId=1, Posted = DateTime.Now.AddMonths(-1), PropertyId=1, StatusId=1},
             new Payment {Id=3, Amount=350, BankId=1, Posted = DateTime.Now.AddMonths(-2), PropertyId=1, StatusId=1},
+
+            new Payment {Id=4, Amount=800, BankId=2, Posted = DateTime.Now, PropertyId=2, StatusId=2},
+            new Payment {Id=5, Amount=800, BankId=2, Posted = DateTime.Now.AddMonths(-1), PropertyId=2, StatusId=1},
+            new Payment {Id=6, Amount=800, BankId=2, Posted = DateTime.Now.AddMonths(-2), PropertyId=2, StatusId=1},
         };
     }
 }

@@ -48,7 +48,7 @@ namespace Cozy.WebUI.Controllers
             model.Property = _propertyServices.GetSinglePropertyById(id);
             model.Landlord = _landlordServices.GetSingleLandlordById(model.Property.LandlordId);
             model.Tenant = _tenantServices.GetTenantById(model.Property.CurrentTenantId); // new class property
-            model.Payments = _paymentServices.GetPaymentByPropertyId(model.Property.Id);
+            model.Payments = _paymentServices.GetPaymentsByPropertyId(model.Property.Id);
 
             return View(model);
         }

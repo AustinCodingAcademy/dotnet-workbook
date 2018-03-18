@@ -7,6 +7,7 @@ namespace Cozy.Service.Interface
     {
         List<Property> GetAllPropertiesByLandlordId(int userId);
         Property GetSinglePropertyById(int id);
+        Property GetPropertyByCurrentTenant(int id);
         Property CreateProperty(Property newProperty);
         Property UpdateProperty(Property updatedPorperty);
         bool DeleteProperty(int id);

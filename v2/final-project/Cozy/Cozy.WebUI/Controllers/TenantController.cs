@@ -3,6 +3,7 @@ using Cozy.Service.Interface;
 using Cozy.WebUI.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cozy.WebUI.Controllers
 {
@@ -12,16 +13,19 @@ namespace Cozy.WebUI.Controllers
         private ILeaseServices _leaseServices;
         private IPropertyServices _propertyServices;
         private IBankServices _bankServices;
+        private IPaymentServices _paymentServices;
 
         public TenantController(ITenantServices tenantServices, 
             ILeaseServices leaseServices, 
             IPropertyServices propertyServices,
-            IBankServices bankServices)
+            IBankServices bankServices,
+            IPaymentServices paymentServices)
         {
             _tenantServices = tenantServices;
             _leaseServices = leaseServices;
             _propertyServices = propertyServices;
             _bankServices = bankServices;
+            _paymentServices = paymentServices;
         }
 
         public IActionResult Index()
@@ -52,6 +56,15 @@ namespace Cozy.WebUI.Controllers
             viewModel.Tenant = tenant;
 
             return View(viewModel);
+        }
+
+        public IActionResult Payments(int id)
+        {
+            var p = _propertyServices.GetPropertyByCurrentTenant(id);
+            var payments = _paymentServices.GetPaymentsByPropertyId(p.Id);
+            payments = payments.Take(3).ToList();
+
+            return View(payments);
         }
 
         public IActionResult CreateBank(Bank newBank)

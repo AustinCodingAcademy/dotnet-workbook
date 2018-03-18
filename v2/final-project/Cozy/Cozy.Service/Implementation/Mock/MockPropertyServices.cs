@@ -44,6 +44,11 @@ namespace Cozy.Service.Implementation.Mock
             return _context.Where(p => p.LandlordId == userId).ToList();
         }
 
+        public Property GetPropertyByCurrentTenant(int id)
+        {
+            return _context.SingleOrDefault(p => p.CurrentTenantId == id);
+        }
+
         public Property GetSinglePropertyById(int id)
         {
             return _context.SingleOrDefault(p => p.Id == id);

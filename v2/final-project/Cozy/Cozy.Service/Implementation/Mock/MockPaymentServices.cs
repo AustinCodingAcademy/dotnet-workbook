@@ -43,7 +43,7 @@ namespace Cozy.Service.Implementation.Mock
             return _context.SingleOrDefault(p => p.Id == id);
         }
 
-        public List<Payment> GetPaymentByPropertyId(int propertyId)
+        public List<Payment> GetPaymentsByPropertyId(int propertyId)
         {
             return _context.Where(p => p.PropertyId == propertyId).ToList();
         }

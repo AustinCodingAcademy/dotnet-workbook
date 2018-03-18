@@ -6,6 +6,12 @@
 
 <h2>Index</h2>
 
+
+@if(User.Identity.IsAuthenticated)
+{
+    <p>Welcome back, @User.Identity.Name</p>
+}
+
 <table>
     <tr>
         <td>@Model.Address</td>

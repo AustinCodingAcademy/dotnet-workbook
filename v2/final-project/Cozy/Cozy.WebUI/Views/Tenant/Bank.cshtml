@@ -3,7 +3,11 @@
     ViewData["Title"] = "Bank";
 }
 
-<h2>Bank</h2>
+<h2>
+    Bank
+    <!-- Modal Trigger-->
+    <a class="btn-floating waves-effect waves-light red modal-trigger" href="#add-bank"><i class="material-icons">add</i></a>
+</h2>
 
 <table>
     <tr>
@@ -38,6 +42,17 @@
 
         <button type="submit">Add new bank</button>
     </form>
+</div>
+
+<!-- Modal Structure -->
+<div id="add-bank" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
 </div>
 
 @section Navbar {
