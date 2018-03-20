@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EZRent.Data.Databse;
+using EZRent.Domain.Models;
 using EZRent.Service.Implementation.Mock;
 using EZRent.Service.Interface;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EZRent.WebUI
@@ -28,6 +33,17 @@ namespace EZRent.WebUI
             services.AddScoped<IPropertyServices, MockPropertyServices>();
             services.AddScoped<IPropertyTypeServices, MockPropertyTypeServices>();
             services.AddScoped<ITenantServices, MockTenantServices>();
+
+            //Connection String to SQL Server and DB Catalog
+            string connectionStringToIdentity = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=EZRentIdentity;Integrated Security=True;Pooling=False";
+            services.AddDbContext<ApplicationUserDbContext>(options => options.UseSqlServer(connectionStringToIdentity));
+
+            //Identity Configureation
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationUserDbContext>() // Store -> IMplementation of DB CRUD
+                .AddDefaultTokenProviders();
+
+            //Mvc Framework
             services.AddMvc();
         }
 
@@ -40,6 +56,8 @@ namespace EZRent.WebUI
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
     }

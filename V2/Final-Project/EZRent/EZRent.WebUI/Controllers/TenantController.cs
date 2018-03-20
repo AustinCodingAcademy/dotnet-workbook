@@ -15,16 +15,19 @@ namespace EZRent.WebUI.Controllers
         private ILeaseServices _leaseServices;
         private IPropertyServices _propertyServices;
         private IBankServices _bankServices;
+        private IPaymentServices _paymentServices;
 
         public TenantController(ITenantServices tenantServices,
             ILeaseServices leaseServices,
             IPropertyServices propertyServices,
-            IBankServices bankServices)
+            IBankServices bankServices,
+            IPaymentServices paymentServices)
         {
             _tenantServices = tenantServices;
             _leaseServices = leaseServices;
             _propertyServices = propertyServices;
             _bankServices = bankServices;
+            _paymentServices = paymentServices;
         }
 
         public IActionResult Index()
@@ -61,6 +64,13 @@ namespace EZRent.WebUI.Controllers
         {
             _bankServices.CreateBank(newBank);
             return RedirectToAction("Bank", new { id = newBank.UserId });
+        }
+
+        public IActionResult Payment(int id)
+        {
+            var payment = _paymentServices.GetPaymentsByPropertyID(id);
+
+            return View(payment);
         }
     }
 }

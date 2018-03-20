@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using EZRent.Domain.Models;
 using EZRent.Service.Interface;
 using EZRent.WebUI.ViewModel;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EZRent.WebUI.Controllers
@@ -16,19 +19,22 @@ namespace EZRent.WebUI.Controllers
         private ITenantServices _tenantServices;
         private IPropertyServices _propertyServices;
         private ILeaseServices _leaseServices;
+        private IHostingEnvironment _environment; // null
 
 
         public LandlordController(ILandlordServices landlordServices,
             IPaymentServices paymentServices,
             ITenantServices tenantServices,
             IPropertyServices propertyServices,
-            ILeaseServices leaseServices)
+            ILeaseServices leaseServices,
+            IHostingEnvironment environment)
         {
             _landlordServices = landlordServices;
             _paymentServices = paymentServices;
             _tenantServices = tenantServices;
             _propertyServices = propertyServices;
             _leaseServices = leaseServices;
+            _environment = environment;
         }
 
         public IActionResult Property(int id)
@@ -64,10 +70,37 @@ namespace EZRent.WebUI.Controllers
             return View(model);
         }
 
-        public IActionResult CreateProperty(Property newProperty)
+        public async Task<IActionResult> CreateProperty(PropertyFormViewModel viewModel)
         {
-            _propertyServices.CreateProperty(newProperty);
-            return RedirectToAction("Index", new { id = newProperty.LandlordId });
+            if (ModelState.IsValid)
+            {
+                // separate the Property and the file
+                Property newProperty = viewModel.Property;
+                IFormFile file = viewModel.File;
+
+                if(file.Length > 0) //weight of file (kb, mb, etc)
+                {
+                    // 
+                    string storageFolder = Path.Combine(_environment.WebRootPath, "images/properties");
+
+                    using (var fileStream = new FileStream(Path.Combine(storageFolder, file.FileName), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    } 
+
+                    //now image is stored in images/properties folder
+                    newProperty.Image = $"images/properties/{file.FileName}";
+
+                    _propertyServices.CreateProperty(newProperty);
+                }
+                else
+                {
+                    newProperty.Image = "http://www.placehold.it/300x300";
+                }
+            }
+
+            return RedirectToAction("index");
+            
         }
     }
 }

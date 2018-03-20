@@ -5,7 +5,7 @@
 
 <h2>Bank</h2>
 
-<table>
+<table class="striped">
     <tr>
         <th>Bank</th>
         <th>Account #</th>
@@ -22,25 +22,35 @@
 </table>
 <hr />
 
-<div>
-    <h2>Add a new bank</h2>
-    <form asp-controller="tenant" asp-action="createBank">
-        <label for="bank-name">Name of the Bank</label>
-        <input type="text" id="bank-name" name="BankName" />
-        <br />
-        <label for="account-number">Account Number</label>
-        <input type="text" id="account-number" name="AccountNumber" />
-        <br />
-        <label for="routing-number">Routing Number</label>
-        <input type="text" id="routing-number" name="RoutingNumber" />
-        <br />
-        <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
+<h2>Add a new bank</h2>
+<!-- Modal Trigger -->
+<a class="btn-floating waves-effect waves-light red modal-trigger" href="#addBank"><i class="material-icons">add</i></a>
 
-        <button type="submit">Add new bank</button>
-    </form>
+<!-- Modal Structure -->
+<div id="addBank" class="modal">
+    <div class="modal-content">
+        <form asp-controller="tenant" asp-action="createBank">
+            <h4>Add a new bank</h4>
+            <label for="bank-name">Name of the Bank</label>
+            <input type="text" id="bank-name" name="BankName" />
+            <br />
+            <label for="account-number">Account Number</label>
+            <input type="text" id="account-number" name="AccountNumber" />
+            <br />
+            <label for="routing-number">Routing Number</label>
+            <input type="text" id="routing-number" name="RoutingNumber" />
+            <br />
+            <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Add bank</button>
+    </div>
 </div>
 
 
+
 @section Navbar{
-    @Html.Partial("TenantNavBar", Model.Tenant.Id)
+    @Html.Partial("_NavBar", Model.Tenant.Id)
 }

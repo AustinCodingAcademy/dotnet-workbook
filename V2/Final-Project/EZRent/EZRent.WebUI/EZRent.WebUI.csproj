@@ -15,4 +15,8 @@
     <ProjectReference Include="..\EZRent.Service\EZRent.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\properties\" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,21 @@
+﻿@model List<Payment>
+
+<table class="striped">
+    <tr>
+        <th>Filler</th>
+        <th>Filler</th>
+        <th>Filler</th>
+    </tr>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>
+                @p.Status
+                @p.Amount
+                @p.Bank
+                @p.DatePosted
+            </td>
+        </tr>
+
+    }
+</table>

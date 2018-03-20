@@ -1,7 +1,12 @@
-﻿@model List<Bank>
+﻿@model Property
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome back, @User.Identity.Name</p>
+
+}
