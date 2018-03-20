@@ -1,12 +1,14 @@
 ﻿using Cozy.Domain.Models;
 using Cozy.Service.Interface;
 using Cozy.WebUI.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Cozy.WebUI.Controllers
 {
+    [Authorize]
     public class TenantController : Controller 
     {
         private ITenantServices _tenantServices;
