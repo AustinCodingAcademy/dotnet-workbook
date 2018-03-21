@@ -6,9 +6,11 @@ using EZRent.Service.Interface;
 using EZRent.WebUI.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using EZRent.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EZRent.WebUI.Controllers
 {
+    [Authorize(Roles ="Tenant")]
     public class TenantController : Controller
     {
         private ITenantServices _tenantServices;

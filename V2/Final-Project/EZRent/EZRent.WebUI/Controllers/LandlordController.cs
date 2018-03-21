@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using EZRent.Domain.Models;
 using EZRent.Service.Interface;
 using EZRent.WebUI.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EZRent.WebUI.Controllers
 {
+    [Authorize(Roles = "Landlord")]
     public class LandlordController : Controller
     {
         private ILandlordServices _landlordServices;
@@ -37,16 +39,6 @@ namespace EZRent.WebUI.Controllers
             _environment = environment;
         }
 
-        public IActionResult Property(int id)
-        {
-            var model = new PropertyViewModel();
-            model.Property = _propertyServices.GetSinglePropertyById(id);
-            model.Landlord = _landlordServices.GetSingleLandlordById(model.Property.LandlordId);
-            model.Tenant = _tenantServices.GetSingleTenantById(model.Property.CurrentTenantId);
-            model.Payments = _paymentServices.GetPaymentsByPropertyID(model.Property.Id);
-
-            return View(model);
-        }
 
         public IActionResult Index()
         {
@@ -66,6 +58,17 @@ namespace EZRent.WebUI.Controllers
             }
 
             model.LeaseList = leaseList;
+
+            return View(model);
+        }
+
+        public IActionResult Property(int id)
+        {
+            var model = new PropertyViewModel();
+            model.Property = _propertyServices.GetSinglePropertyById(id);
+            model.Landlord = _landlordServices.GetSingleLandlordById(model.Property.LandlordId);
+            model.Tenant = _tenantServices.GetSingleTenantById(model.Property.CurrentTenantId);
+            model.Payments = _paymentServices.GetPaymentsByPropertyID(model.Property.Id);
 
             return View(model);
         }

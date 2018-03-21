@@ -12,7 +12,7 @@ namespace EZRent.Domain.Models
         [Required]
         public string BankName { get; set; }
 
-        [Required]
+        [Required, MinLength(10), MaxLength(10)]
         public int AccountNumber { get; set; }
 
         [Required]

@@ -23,5 +23,9 @@
         <input asp-for="ConfirmedPassword"/>
         <span asp-validation-for="ConfirmedPassword"></span>
     </div>
+    <div class="input-field">
+        <select asp-for="Role" asp-items="@Model.Roles"></select>
+        <label asp-for="Role"></label>
+    </div>
     <button class="waves-effect waves-light btn" type="submit">Register</button>
 </form>

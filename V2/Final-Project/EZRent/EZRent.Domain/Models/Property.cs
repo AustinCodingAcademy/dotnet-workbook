@@ -21,11 +21,13 @@ namespace EZRent.Domain.Models
         [Required, DataType(DataType.PostalCode)]
         public string Zipcode { get; set; }
 
+        [Required]
         public int PropertyTypeId { get; set; }
 
         [Required]
         public int LandlordId { get; set; }
         public int CurrentTenantId { get; set; }
+
         public string Image { get; set; }
         // navigation
         public PropertyType Type { get; set; }
