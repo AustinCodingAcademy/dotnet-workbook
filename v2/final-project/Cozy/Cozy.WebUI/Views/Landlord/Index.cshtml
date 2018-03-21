@@ -1,10 +1,10 @@
 ﻿@model LandlordPropertyViewModel
 
-<div>
-    Welcome back, @Model.Landlord.FirstName
-</div>
-
-<p>Property list</p>
+<h2>
+    Property list
+    <!-- Modal Trigger -->
+    <a class="btn-floating waves-effect waves-light red modal-trigger" href="#new-property"><i class="material-icons">add</i></a>
+</h2>
 <table>
     <tr>
         <th>
@@ -27,27 +27,52 @@
             </td>
             <td>@p.PropertyTypeId</td>
             <td>
-                <img src="@p.Image"/>
+                <img src="@p.Image" />
             </td>
         </tr>
     }
 </table>
 
-<div>
-    <h3>Create a Property</h3>
+<!-- Modal Structure -->
+<div id="new-property" class="modal">
     <form asp-controller="landlord" asp-action="CreateProperty" enctype="multipart/form-data">
-        <label for="address">Address</label>
-        <input id="address" name="Property.Address" />
-        <br />
-        <label>Image</label>
-        <input type="file" name="File"/>
-        <br />
-        <input type="hidden" name="Property.LandlordId" value="@Model.Landlord.Id"/>
-        <button class="btn">Submit</button>
+        <div class="modal-content">
+            <h4>New Property</h4>
+            <p>Fill the information bellow to create a new property and start collectin rent</p>
+
+            <div>
+                <label for="address">Address</label>
+                <input id="address" name="Property.Address" />
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input id="city" name="Property.City" />
+            </div>
+            <div>
+                <label for="state">State</label>
+                <input id="state" name="Property.State" />
+            </div>
+            <div>
+                <label for="zipcode">Zipcode</label>
+                <input id="zipcode" name="Property.Zipcode" />
+            </div>
+
+            <div>
+                <label>Image</label>
+                <br />
+                <input type="file" name="File" />
+            </div>
+            <input type="hidden" name="Property.LandlordId" value="@Model.Landlord.Id" />
+            
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button class="btn modal-close">Submit</button>
+        </div>
     </form>
 </div>
 
-@{ 
+@{
     LandlordNavBarViewModel viewModel = new LandlordNavBarViewModel();
     viewModel.LandlordId = Model.Landlord.Id;
     viewModel.Properties = Model.Properties;

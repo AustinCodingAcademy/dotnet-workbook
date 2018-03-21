@@ -19,5 +19,9 @@
         <label asp-for="ConfirmedPassword"></label>
         <input asp-for="ConfirmedPassword" />
     </div>
-    <button type="submit">Register</button>
+    <div class="input-field">
+        <select asp-for="Role" asp-items="@Model.Roles"></select>
+        <label asp-for="Role"></label>
+    </div>
+    <button class="btn" type="submit">Register</button>
 </form>

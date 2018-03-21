@@ -35,6 +35,7 @@ namespace Cozy.WebUI
             services.AddScoped<IPaymentServices, MockPaymentServices>();
 
             // DbContext Information
+            
             services.AddDbContext<ApplicationUserDbContext>(options =>
             options.UseSqlServer(_configuration.GetConnectionString("AppIdentityConnection")));
 

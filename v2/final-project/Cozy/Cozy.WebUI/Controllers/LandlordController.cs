@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Cozy.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Landlord")]
     public class LandlordController : Controller
     {
         private ILandlordServices _landlordServices;

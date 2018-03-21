@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cozy.WebUI.ViewModel
 {
@@ -13,5 +14,10 @@ namespace Cozy.WebUI.ViewModel
         [Required, DataType(DataType.Password), Compare("Password", ErrorMessage = "Both Passwords need to match")]
         [Display(Name = "Confirm Password")]
         public string ConfirmedPassword { get; set; }
+
+        [Required]
+        public string Role { get; set; }
+
+        public SelectList Roles { get; set; }
     }
 }

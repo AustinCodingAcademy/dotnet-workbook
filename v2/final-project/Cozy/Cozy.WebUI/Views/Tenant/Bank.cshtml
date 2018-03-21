@@ -6,7 +6,7 @@
 <h2>
     Bank
     <!-- Modal Trigger-->
-    <a class="btn-floating waves-effect waves-light red modal-trigger" href="#add-bank"><i class="material-icons">add</i></a>
+    <a class="btn-floating waves-effect waves-light red modal-trigger" href="#new-bank"><i class="material-icons">add</i></a>
 </h2>
 
 <table>
@@ -25,34 +25,32 @@
         </tr>
     }
 </table>
-<hr />
-<div>
-    <h2>Add a new bank</h2>
-    <form asp-controller="tenant" asp-action="createbank">
-        <label for="bank-name">Name of the Bank</label>
-        <input type="text" id="bank-name" name="Name" />
-        <br />
-        <label for="account-number">Account Number</label>
-        <input type="text" id="account-number" name="Account" />
-        <br />
-        <label for="routing-number">Routing Number</label>
-        <input type="text" id="routing-number" name="RoutingNumber" />
-        <br />
-        <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
-
-        <button type="submit">Add new bank</button>
-    </form>
-</div>
 
 <!-- Modal Structure -->
-<div id="add-bank" class="modal">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+<div id="new-bank" class="modal">
+    <form asp-controller="tenant" asp-action="createbank">
+        <div class="modal-content">
+            <h4>New Bank Account</h4>
+            <p>Fill the form to add a new bank account to collecto your deposits</p>
+            <div>
+                <label for="bank-name">Name of the Bank</label>
+                <input type="text" id="bank-name" name="Name" />
+            </div>
+            <div>
+                <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" name="Account" />
+            </div>
+            <div>
+                <label for="routing-number">Routing Number</label>
+                <input type="text" id="routing-number" name="RoutingNumber" />
+            </div>
+            <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button class="modal-close btn" type="submit">Submit</button>
+        </div>
+    </form>
 </div>
 
 @section Navbar {

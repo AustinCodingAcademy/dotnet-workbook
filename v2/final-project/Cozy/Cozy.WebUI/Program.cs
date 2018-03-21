@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Cozy.Data.Database;
+using Cozy.Data.Seeding;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Cozy.WebUI
@@ -14,7 +17,24 @@ namespace Cozy.WebUI
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            var host = BuildWebHost(args);
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                try
+                {
+                    var appUserDbContext = services.GetRequiredService<ApplicationUserDbContext>();
+                    DBInitializer.Init(appUserDbContext);
+                }
+                catch( Exception ex)
+                {
+                    // nothing
+                }
+            }
+
+            host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Cozy.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Tenant")]
     public class TenantController : Controller 
     {
         private ITenantServices _tenantServices;
