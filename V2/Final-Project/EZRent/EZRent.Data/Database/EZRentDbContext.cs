@@ -10,6 +10,5 @@ namespace EZRent.Data.Database
     {
         // No AppUser, Landlord, or Tenant
         public DbSet<Bank> Banks {get; set;}
-        public DbSet
     }
 }

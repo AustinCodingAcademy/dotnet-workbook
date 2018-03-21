@@ -134,5 +134,10 @@ namespace EZRent.WebUI.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }

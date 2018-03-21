@@ -12,9 +12,9 @@ namespace EZRent.Service.Implementation.EFCore
     {
         private readonly EZRentDbContext _dbContext;
 
-        public Bank(EZRentDbContext dbContext)
+        public void Bank(EZRentDbContext dbContext)
         {
-            _dbContext = dbContext;
+            dbContext = _dbContext;
         }
 
         public Bank CreateBank(Bank newBank)

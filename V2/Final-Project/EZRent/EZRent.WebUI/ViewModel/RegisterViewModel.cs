@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using EZRent.Domain.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,8 @@ namespace EZRent.WebUI.ViewModel
 
         [Required]
         public string Role { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
 
         public SelectList Roles { get; set; }
     }

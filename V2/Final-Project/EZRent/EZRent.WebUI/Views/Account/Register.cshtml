@@ -23,6 +23,14 @@
         <input asp-for="ConfirmedPassword"/>
         <span asp-validation-for="ConfirmedPassword"></span>
     </div>
+    <div>
+        <label asp-for="ApplicationUser.FirstName"></label>
+        <input asp-for="ApplicationUser.FirstName"/>
+    </div>
+    <div>
+        <label asp-for="ApplicationUser.LastName"></label>
+        <input asp-for="ApplicationUser.LastName" />
+    </div>
     <div class="input-field">
         <select asp-for="Role" asp-items="@Model.Roles"></select>
         <label asp-for="Role"></label>
