@@ -1,9 +1,7 @@
 ﻿using Cozy.Data.Mock;
 using Cozy.Domain.Models;
 using Cozy.Service.Interface;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace Cozy.Service.Implementation.Mock
@@ -42,9 +40,9 @@ namespace Cozy.Service.Implementation.Mock
             return _context.SingleOrDefault(m => m.Id == id);
         }
 
-        public Maintenance GetMaintenanceByPropertyId(int propertyId)
+        public List<Maintenance> GetMaintenancesByPropertyId(int propertyId)
         {
-            return _context.SingleOrDefault(m => m.PropertyId == propertyId);
+            return _context.Where(m => m.PropertyId == propertyId).ToList();
         }
 
         public Maintenance UpdateMaintenance(Maintenance updatedMaintenance)

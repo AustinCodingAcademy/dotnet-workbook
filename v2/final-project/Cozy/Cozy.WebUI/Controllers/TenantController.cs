@@ -35,15 +35,17 @@ namespace Cozy.WebUI.Controllers
             // tenant - TenantService
             var t = _tenantServices.GetTenantById(1);
 
-            // lease - active
-            var l = _leaseServices.GetLeaseByTenantId(t.Id);
-
             // property
-            var p = _propertyServices.GetSinglePropertyById(l.PropertyId);
+            var p = _propertyServices.GetPropertyByCurrentTenant(1);
 
-            var model = new TenantPropertyViewModel();
-            model.Property = p;
-            model.Tenant = t;
+            // lease - active
+            var l = _leaseServices.GetLeaseByPropertyIdAndTenantId(p.Id, t.Id);
+
+            var model = new TenantPropertyViewModel()
+            {
+                Property = p,
+                Tenant = t
+            };
 
             return View(model);
         }

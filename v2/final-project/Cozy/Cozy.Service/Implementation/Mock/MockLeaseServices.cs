@@ -35,26 +35,14 @@ namespace Cozy.Service.Implementation.Mock
             return false;
         }
 
-       public Lease GetLeaseByPropertyId(int propertyId)
-        {
-            return _context.SingleOrDefault(l => l.PropertyId == propertyId);
-        }
-
         public Lease GetLeaseByPropertyIdAndTenantId(int propertyId, int tenantId)
         {
             return _context.SingleOrDefault(l => l.PropertyId == propertyId && l.TenantId == tenantId);
         }
 
-        public Lease GetLeaseByTenantId(int tenantId)
-        {
-            return _context
-                .Where(l => l.End >= DateTime.Now)
-                .SingleOrDefault(l => l.TenantId == tenantId);
-        }
-
         public Lease UpdateLease(Lease updatedLease)
         {
-            Lease l = GetLeaseByPropertyId(updatedLease.PropertyId);
+            Lease l = GetLeaseByPropertyIdAndTenantId(updatedLease.PropertyId, updatedLease.TenantId);
             _context.Remove(l);
             _context.Add(updatedLease);
 

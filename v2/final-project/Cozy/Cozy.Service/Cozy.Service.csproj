@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementation\EFCore\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Cozy.Data\Cozy.Data.csproj" />
     <ProjectReference Include="..\Cozy.Domain\Cozy.Domain.csproj" />
   </ItemGroup>
