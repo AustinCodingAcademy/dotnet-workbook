@@ -7,8 +7,6 @@ namespace EZRent.Service.Interface
 {
     public interface ILeaseServices
     {
-        Lease GetLeaseByProperty(int propertyId);
-        Lease GetLeaseByTenantId(int tenantId);
         Lease GetLeaseByPropertyAndTenantId(int propertyId, int tenantId);
 
         // Create

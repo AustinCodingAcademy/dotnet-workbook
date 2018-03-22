@@ -7,9 +7,9 @@ namespace EZRent.Service.Interface
 {
     public interface IPropertyServices
     {
-        List<Property> GetAllPropertys();
         Property GetSinglePropertyById(int id);
-        List<Property> GetPropertiesByLandlordId(int id);
+        List<Property> GetPropertiesByLandlordId(int userId);
+        Property GetPropertyByTenantId(int id);
 
         // Create
         Property CreateProperty(Property newProperty);

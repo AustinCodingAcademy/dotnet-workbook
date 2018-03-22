@@ -19,12 +19,25 @@ namespace EZRent.Service.Implementation.EFCore
 
         public Bank CreateBank(Bank newBank)
         {
-            throw new NotImplementedException();
+            _dbContext.Banks.Add(newBank);
+            _dbContext.SaveChanges();
+
+            return newBank;
         }
 
         public bool DeleteBank(int id)
         {
-            throw new NotImplementedException();
+            var bank = _dbContext.Banks.Find(id);
+
+            _dbContext.Banks.Remove(bank);
+            _dbContext.SaveChanges();
+            
+            if(_dbContext.Banks.Find(id) == null)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public List<Bank> GetBanksByTenantId(int id)
@@ -34,12 +47,15 @@ namespace EZRent.Service.Implementation.EFCore
 
         public Bank GetSingleBankById(int id)
         {
-            return _dbContext.Banks.SingleOrDefault(b => b.Id == id);
+            return _dbContext.Banks.Find(id);
         }
 
         public Bank UpdateBank(Bank updatedBank)
         {
-            throw new NotImplementedException();
+            var bank = _dbContext.Banks.Update(updatedBank);
+            _dbContext.SaveChanges();
+
+            return bank.Entity;
         }
     }
 }

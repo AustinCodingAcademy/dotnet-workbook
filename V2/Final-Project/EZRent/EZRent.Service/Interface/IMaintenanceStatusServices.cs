@@ -7,7 +7,6 @@ namespace EZRent.Service.Interface
 {
     public interface IMaintenanceStatusServices
     {
-        List<MaintenanceStatus> GetAllMaintenanceStatuses();
-        MaintenanceStatus GetSingleMaintenanceStatusById(int id);
+        MaintenanceStatus GetMaintenanceStatus(int id);
     }
 }

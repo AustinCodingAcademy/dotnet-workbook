@@ -7,8 +7,6 @@ namespace EZRent.Service.Interface
 {
     public interface IPaymentStatusServices
     {
-        List<PaymentStatus> GetAllPaymentStatuses();
-        PaymentStatus GetSinglePaymentStatusById(int id);
-
+        PaymentStatus GetPaymentStatusById(int id);
     }
 }

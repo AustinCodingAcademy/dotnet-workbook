@@ -1,15 +1,12 @@
 ﻿using EZRent.Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EZRent.Service.Interface
 {
     public interface IMaintenanceServices
     {
-        List<Maintenance> GetAllMaintenances();
         Maintenance GetSingleMaintenanceById(int id);
-
+        List<Maintenance> GetMaitnenanceByPropertyId(int propertyId);
         // Create
         Maintenance CreateMaintenance(Maintenance newMaintenance);
 
