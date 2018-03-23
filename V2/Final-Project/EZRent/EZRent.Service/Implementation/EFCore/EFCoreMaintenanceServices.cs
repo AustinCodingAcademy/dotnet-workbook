@@ -37,7 +37,7 @@ namespace EZRent.Service.Implementation.EFCore
             return false;
         }
 
-        public List<Maintenance> GetMaitnenanceByPropertyId(int propertyId)
+        public List<Maintenance> GetMaintenanceByPropertyId(int propertyId)
             => _dbContext.Maintenances.Where(m => m.PropertyId == propertyId).ToList();
 
         public Maintenance GetSingleMaintenanceById(int id) => _dbContext.Maintenances.Find(id);

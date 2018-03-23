@@ -39,10 +39,10 @@ namespace EZRent.WebUI.Controllers
 
 
             // lease - active
-            var l = _leaseServices.GetLeaseByTenantId(t.Id);
+           // var l = _leaseServices.GetLeaseByTenantId(t.Id);
 
             // tenants' property
-            var p = _propertyServices.GetSinglePropertyById(l.PropertyId);
+            var p = _propertyServices.GetPropertyByTenantId(t.Id);
 
             var model = new TenantPropertyViewModel();
             model.Property = p;

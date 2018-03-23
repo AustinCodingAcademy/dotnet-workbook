@@ -51,6 +51,11 @@ namespace EZRent.Service.Implementation.Mock
             return _context.Where(b => b.LandlordId == id).ToList();
         }
 
+        public Property GetPropertyByTenantId(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Property GetSinglePropertyById(int id)
         {
             return _context.SingleOrDefault(b => b.Id == id);

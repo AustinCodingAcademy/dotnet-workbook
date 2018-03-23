@@ -48,6 +48,11 @@ namespace EZRent.Service.Implementation.Mock
             return _context;
         }
 
+        public List<Maintenance> GetMaintenanceByPropertyId(int propertyId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Maintenance GetSingleMaintenanceById(int id)
         {
             return _context.SingleOrDefault(b => b.Id == id);

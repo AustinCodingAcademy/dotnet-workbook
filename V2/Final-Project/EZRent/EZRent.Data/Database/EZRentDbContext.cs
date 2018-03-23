@@ -24,6 +24,6 @@ namespace EZRent.Data.Database
         {
 
         }
-
+        
     }
 }

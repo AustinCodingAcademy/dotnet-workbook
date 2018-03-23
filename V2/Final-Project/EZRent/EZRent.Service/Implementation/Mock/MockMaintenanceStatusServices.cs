@@ -21,6 +21,11 @@ namespace EZRent.Service.Implementation.Mock
             return _context;
         }
 
+        public MaintenanceStatus GetMaintenanceStatus(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public MaintenanceStatus GetSingleMaintenanceStatusById(int id)
         {
             return _context.SingleOrDefault(b => b.Id == id);

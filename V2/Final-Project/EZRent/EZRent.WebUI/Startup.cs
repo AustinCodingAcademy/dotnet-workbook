@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EZRent.Data.Databse;
+﻿using EZRent.Data.Database;
 using EZRent.Domain.Models;
+using EZRent.Service.Implementation.EFCore;
 using EZRent.Service.Implementation.Mock;
 using EZRent.Service.Interface;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,16 +25,16 @@ namespace EZRent.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IBankServices, MockBankServices>();
+            services.AddScoped<IBankServices, EFCoreBankServices>();
             services.AddScoped<ILandlordServices, MockLandlordServices>();
-            services.AddScoped<ILeaseServices, MockLeaseServices>();
-            services.AddScoped<ILeaseTypeServices, MockLeaseTypeServices>();
-            services.AddScoped<IMaintenanceServices, MockMaintenanceServices>();
-            services.AddScoped<IMaintenanceStatusServices, MockMaintenanceStatusServices>();
-            services.AddScoped<IPaymentServices, MockPaymentServices>();
-            services.AddScoped<IPaymentStatusServices, MockPaymentStatusServices>();
-            services.AddScoped<IPropertyServices, MockPropertyServices>();
-            services.AddScoped<IPropertyTypeServices, MockPropertyTypeServices>();
+            services.AddScoped<ILeaseServices, EFCoreLeaseServices>();
+            services.AddScoped<ILeaseTypeServices, EFCoreLeaseTypeServices>();
+            services.AddScoped<IMaintenanceServices, EFCoreMaintenanceServices>();
+            services.AddScoped<IMaintenanceStatusServices, EFCoreMaintenanceStatusServices>();
+            services.AddScoped<IPaymentServices, EFCorePaymentServices>();
+            services.AddScoped<IPaymentStatusServices, EFCorePaymentStatusServices>();
+            services.AddScoped<IPropertyServices, EFCorePropertyServices>();
+            services.AddScoped<IPropertyTypeServices, EFCorePropertyTypeServices>();
             services.AddScoped<ITenantServices, MockTenantServices>();
 
             //Connection String to SQL Server and DB Catalog
@@ -50,6 +45,10 @@ namespace EZRent.WebUI
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationUserDbContext>() // Store -> IMplementation of DB CRUD
                 .AddDefaultTokenProviders();
+
+            //DbCOntext for Application
+            services.AddDbContext<EZRentDbContext>(options =>
+            options.UseSqlServer(_configuration.GetConnectionString("EZRentConnection")));
 
             //Mvc Framework
             services.AddMvc();

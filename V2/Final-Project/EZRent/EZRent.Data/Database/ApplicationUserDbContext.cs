@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace EZRent.Data.Databse
+namespace EZRent.Data.Database
 {
     public class ApplicationUserDbContext : IdentityDbContext<ApplicationUser>
     {

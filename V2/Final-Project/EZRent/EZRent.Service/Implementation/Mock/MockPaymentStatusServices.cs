@@ -8,7 +8,8 @@ using System.Text;
 
 namespace EZRent.Service.Implementation.Mock
 {
-    public class MockPaymentStatusServices : IPaymentStatusServices
+    public class MockPaymentStatusServices : 
+        IPaymentStatusServices
     {
         private List<PaymentStatus> _context;
 
@@ -20,6 +21,11 @@ namespace EZRent.Service.Implementation.Mock
         public List<PaymentStatus> GetAllPaymentStatuses()
         {
             return _context;
+        }
+
+        public PaymentStatus GetPaymentStatusById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public PaymentStatus GetSinglePaymentStatusById(int id)

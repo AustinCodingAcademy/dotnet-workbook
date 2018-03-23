@@ -51,13 +51,13 @@ namespace EZRent.WebUI.Controllers
             model.PropertyList = pList;
             
 
-            List<Lease> leaseList = new List<Lease>();
-            foreach (var p in pList)
-            {
-                leaseList.Add(_leaseServices.GetLeaseByProperty(p.Id));
-            }
+            //List<Lease> leaseList = new List<Lease>();
+            //foreach (var p in pList)
+            //{
+            //    leaseList.Add(_leaseServices.GetLeaseByPropertyAndTenantId(p.Id));
+            //}
 
-            model.LeaseList = leaseList;
+            //model.LeaseList = leaseList;
 
             return View(model);
         }

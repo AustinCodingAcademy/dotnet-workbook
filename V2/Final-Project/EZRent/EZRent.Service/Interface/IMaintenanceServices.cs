@@ -6,7 +6,7 @@ namespace EZRent.Service.Interface
     public interface IMaintenanceServices
     {
         Maintenance GetSingleMaintenanceById(int id);
-        List<Maintenance> GetMaitnenanceByPropertyId(int propertyId);
+        List<Maintenance> GetMaintenanceByPropertyId(int propertyId);
         // Create
         Maintenance CreateMaintenance(Maintenance newMaintenance);
 

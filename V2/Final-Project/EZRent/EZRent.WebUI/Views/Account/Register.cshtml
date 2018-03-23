@@ -3,37 +3,60 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>Register</h2>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">EZRent</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a asp-controller="Account" asp-action="Login">Sign In</a></li>
+            @*To login to an account with mock data*@
+            @*<li><a asp-action="">Explore</a></li>*@
+        </ul>
+    </div>
+</nav>
+
+<h2>Create your EZRent Account</h2>
 
 
-<form asp-controller="Account" asp-action="Register" method="post">
+<form asp-controller="Account" asp-action="Register" class="col s6" method="post">
     <div asp-validation-summary="All"></div>
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email"/>
-        <span asp-validation-for="Email"></span>
+    <div class="row">
+        <div class="input-field col s5">
+            <label asp-for="Email"></label>
+            <input asp-for="Email"/>
+            <span asp-validation-for="Email"></span>
+        </div>
     </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password"/>
-        <span asp-validation-for="Password"></span>
+    <div class="row">
+        <div class="input-field col s5">
+            <label asp-for="Password"></label>
+            <input asp-for="Password"/>
+            <span asp-validation-for="Password"></span>
+        </div>
     </div>    
-    <div>
-        <label asp-for="ConfirmedPassword"></label>
-        <input asp-for="ConfirmedPassword"/>
-        <span asp-validation-for="ConfirmedPassword"></span>
+    <div class="row">
+        <div class="input-field col s5">
+            <label asp-for="ConfirmedPassword"></label>
+            <input asp-for="ConfirmedPassword"/>
+            <span asp-validation-for="ConfirmedPassword"></span>
+        </div>
     </div>
-    <div>
-        <label asp-for="ApplicationUser.FirstName"></label>
-        <input asp-for="ApplicationUser.FirstName"/>
+    <div class="row">
+        <div class="input-field col s5">
+            <label asp-for="ApplicationUser.FirstName"></label>
+            <input asp-for="ApplicationUser.FirstName"/>
+        </div>
     </div>
-    <div>
-        <label asp-for="ApplicationUser.LastName"></label>
-        <input asp-for="ApplicationUser.LastName" />
+    <div class="row">
+        <div class="input-field col s5">
+            <label asp-for="ApplicationUser.LastName"></label>
+            <input asp-for="ApplicationUser.LastName" />
+        </div>
     </div>
-    <div class="input-field">
-        <select asp-for="Role" asp-items="@Model.Roles"></select>
-        <label asp-for="Role"></label>
+    <div class="input-field row">
+        <div class="input-field col s5">
+            <select asp-for="Role" asp-items="@Model.Roles"></select>
+            <label asp-for="Role"></label>
+        </div>
     </div>
     <button class="waves-effect waves-light btn" type="submit">Register</button>
 </form>
