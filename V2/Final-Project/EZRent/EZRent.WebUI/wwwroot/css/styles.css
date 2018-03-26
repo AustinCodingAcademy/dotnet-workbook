@@ -1,0 +1,75 @@
+﻿.homeContent {
+    position: relative;
+    text-align: left;
+    color: black;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffe53a;
+    text-shadow: 2px 1px #695e18;
+}
+
+.top-left {
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    color: #ffe53a;
+    text-shadow: 2px 2px #695e18;
+}
+
+#pineapple{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0.8;
+}
+
+.callToAction {
+    top: 270px;
+    left: 120px;
+    height: 180px;
+    width: 180px;
+    background-color: #ffe53a;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    border: 2px solid #695e18;
+}
+
+    .callToAction:hover {
+        background-color: #ee6e73;
+        border: 2px dashed #230942;
+    }
+
+    .callToAction a {
+        font-size: 32px;
+        font-weight: bold;
+        color: #230942;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+.flex-container{
+    display: flex;
+}
+
+.registerForm{
+    flex: 50%;
+}
+
+.tour{
+    flex: 50%;
+    }
+.tour h4{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 32px;
+    line-height: 125%;
+}
