@@ -1,0 +1,36 @@
+﻿@*<nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a asp-controller="tenant" asp-action="index">Home</a></li>
+                <li><a asp-controller="tenant" asp-action="bank">Bank</a></li>
+                <li><a asp-controller="landlord" asp-action="landlord">Landlord</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a asp-controller="tenant" asp-action="index">Home</a></li>
+                <li><a asp-controller="tenant" asp-action="bank">Bank</a></li>
+                <li><a asp-controller="landlord" asp-action="landlord">Landlord</a></li>
+            </ul>
+        </div>
+    </nav>*@
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Nathan's</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a asp-controller="account" asp-action="register">Register</a></li>
+            <li><a asp-controller="landlord" asp-action="index">Landlords</a></li>
+            <li><a asp-controller="tenant" asp-action="index">Tenants</a></li>
+            <li><a asp-controller="tenant" asp-action="payments">Payments</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a asp-controller="account" asp-action="register">Register</a></li>
+    <li><a asp-controller="landlord" asp-action="index">Landlords</a></li>
+    <li><a asp-controller="tenant" asp-action="index">Tenants</a></li>
+    <li><a asp-controller="tenant" asp-action="payments">Payments</a></li>
+</ul>

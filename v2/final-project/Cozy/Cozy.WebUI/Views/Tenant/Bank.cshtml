@@ -1,0 +1,64 @@
+﻿@model TenantBanksViewModel
+@{
+    ViewData["Title"] = "Bank";
+}
+
+<h2>
+    Bank
+    <!-- Modal Trigger-->
+    <a class="btn-floating waves-effect waves-light red modal-trigger" href="#new-bank"><i class="material-icons">add</i></a>
+</h2>
+
+<table>
+    <tr>
+        <th>Bank</th>
+        <th>Account #</th>
+        <th>Routing #</th>
+    </tr>
+
+    @foreach (var b in Model.Banks)
+    {
+        <tr>
+            <td>@b.Name</td>
+            <td>@b.Account</td>
+            <td>@b.RoutingNumber</td>
+        </tr>
+    }
+</table>
+
+<!-- Modal Structure -->
+<div id="new-bank" class="modal">
+    <form asp-controller="tenant" asp-action="createbank">
+        <div class="modal-content">
+            <h4>New Bank Account</h4>
+            <p>Fill the form to add a new bank account to collecto your deposits</p>
+            <div>
+                <label for="bank-name">Name of the Bank</label>
+                <input type="text" id="bank-name" name="Name" />
+            </div>
+            <div>
+                <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" name="Account" />
+            </div>
+            <div>
+                <label for="routing-number">Routing Number</label>
+                <input type="text" id="routing-number" name="RoutingNumber" />
+            </div>
+            <input type="hidden" name="UserId" value="@Model.Tenant.Id" />
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button class="modal-close btn" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    th {
+        color: cornflowerblue
+    }
+</style>
+
+@section Navbar {
+    @Html.Partial("_NavBar", Model.Tenant.Id)
+}

@@ -1,0 +1,39 @@
+﻿@model List<Payment>
+
+
+<div>
+    <img src="" />
+</div>
+<h2></h2>
+<hr />
+<table class="striped">
+    <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Bank</th>
+    <tr>
+
+        @foreach (var p in Model)
+        {
+        <tr>
+            <td>@p.Posted</td>
+            <td>@p.Amount</td>
+            <td>@p.BankId</td>
+        </tr>
+
+    }
+    </table>
+<hr />
+<button type="submit">View All Payments</button>
+<style>
+    th {
+        color: cornflowerblue
+    }
+</style>
+
+
+
+
+    @section Navbar {
+        @Html.Partial("_NavBar", Model);
+    }
