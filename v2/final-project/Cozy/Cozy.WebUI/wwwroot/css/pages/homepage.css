@@ -1,0 +1,19 @@
+/* The hero image */
+.hero-image {
+    /* The image used */
+    background-image: url("http://ukrevival.net/files/2014/07/house.jpg");
+    /* Set a specific height */
+    height: 100vh;
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 40px;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    color: black;
+}

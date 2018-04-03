@@ -1,0 +1,28 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+
+    "inputFiles": [
+      "wwwroot/css/pages/*.css",
+      "wwwroot/css/components/*.css"
+    ]
+  },
+
+  {
+    "outputFileName": "wwwroot/css/site-m.min.css",
+
+    "inputFiles": [
+      "wwwroot/css/pages/*-m.css",
+      "wwwroot/css/components/*-m.css"
+    ]
+  },
+
+  {
+    "outputFileName": "wwwroot/css/site-l.min.css",
+
+    "inputFiles": [
+      "wwwroot/css/pages/*-l.css",
+      "wwwroot/css/components/*-l.css"
+    ]
+  }
+]

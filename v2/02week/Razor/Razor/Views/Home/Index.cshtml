@@ -1,0 +1,19 @@
+﻿@model List<Razor.Models.Product>
+
+@{
+    ViewBag.Title = "Index Page";
+}
+
+<div>
+    @foreach (var c in Model)
+    {
+        @if (c.Price > 300)
+        {
+            null;
+        };
+            else
+        {
+            <div class="@(c.Category == "Watersports" ? "water-sport" : null)">
+                @c.Name, @c.Description, @c.Category, $@c.Price
+            </div>;
+        }

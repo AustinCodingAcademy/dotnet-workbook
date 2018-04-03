@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Welcome back @User.Identity.Name</h1>
+        <button class="waves-effect waves-light btn">Log In</button>
+    </div>
+</div>
+
+
+@section Navbar {
+    @Html.Partial("_NavBar")
+}

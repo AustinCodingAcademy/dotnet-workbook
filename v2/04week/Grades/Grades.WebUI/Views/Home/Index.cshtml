@@ -1,0 +1,12 @@
+﻿@model List<Grades.Domain.Models.Grade>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var g in Model)
+{
+    <div>@g.Id - @g.Name </div>
+    @g.Students
+}

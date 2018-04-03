@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/site.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/site-m.min.css" media="(min-width: 768px)" />
+    <link type="text/css" rel="stylesheet" href="~/css/site-l.min.css" media="(min-width: 992px)"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        @RenderSection("Navbar", required: false)
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="~/js/cozy.js"></script>
+</body>
+</html>
