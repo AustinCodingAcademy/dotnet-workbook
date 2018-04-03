@@ -3,4 +3,4 @@
     $(".button-collapse").sideNav();
     $(".dropdown-button").dropdown();
     $('.modal').modal();
-})
+});

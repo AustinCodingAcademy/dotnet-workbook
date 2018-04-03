@@ -1,6 +1,8 @@
 ﻿using EZRent.Data.Database;
 using EZRent.Domain.Models;
 using EZRent.Service.Interface;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EZRent.Service.Implementation.EFCore
 {
@@ -13,6 +15,6 @@ namespace EZRent.Service.Implementation.EFCore
             _dbContext = dbContext;
         }
 
-        public PropertyType GetSinglePropertyTypeById(int id) => _dbContext.PropertyTypes.Find(id);
+        public List<PropertyType> GetPropertyTypes() => _dbContext.PropertyTypes.ToList();
     }
 }

@@ -40,7 +40,7 @@ namespace EZRent.Service.Implementation.EFCore
             return false;
         }
 
-        public List<Bank> GetBanksByTenantId(int id)
+        public List<Bank> GetBanksByTenantId(string id)
         {
             return _dbContext.Banks.Where(b => b.UserId == id).ToList();
         }

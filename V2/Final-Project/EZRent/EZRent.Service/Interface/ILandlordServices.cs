@@ -7,7 +7,7 @@ namespace EZRent.Service.Interface
     public interface ILandlordServices
     {
         List<Landlord> GetAllLandlords();
-        Landlord GetSingleLandlordById(int id);
+        Landlord GetSingleLandlordById(string id);
         
         
 
@@ -17,6 +17,6 @@ namespace EZRent.Service.Interface
         // Update
         Landlord UpdateLandlord(Landlord updatedLandlord);
         // Delete
-        bool DeleteLandlord(int id);
+        bool DeleteLandlord(string id);
     }
 }

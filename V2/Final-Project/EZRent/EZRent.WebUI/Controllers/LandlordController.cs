@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EZRent.Domain.Models;
 using EZRent.Service.Interface;
@@ -9,65 +10,62 @@ using EZRent.WebUI.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EZRent.WebUI.Controllers
 {
     [Authorize(Roles = "Landlord")]
-    public class LandlordController : Controller
+    public class LandlordController : BaseController
     {
-        private ILandlordServices _landlordServices;
-        private IPaymentServices _paymentServices;
-        private ITenantServices _tenantServices;
+        private readonly IPropertyTypeServices _propertyTypeServices;
         private IPropertyServices _propertyServices;
+        private IPaymentServices _paymentServices;
         private ILeaseServices _leaseServices;
-        private IHostingEnvironment _environment; // null
+        private IHostingEnvironment _environment;
 
-
-        public LandlordController(ILandlordServices landlordServices,
-            IPaymentServices paymentServices,
-            ITenantServices tenantServices,
+        public LandlordController(IPropertyTypeServices propertyTypeServices,
             IPropertyServices propertyServices,
+            IHostingEnvironment environment,
+            IPaymentServices paymentServices,
             ILeaseServices leaseServices,
-            IHostingEnvironment environment)
+            UserManager<ApplicationUser> userManager) : base(userManager)
         {
-            _landlordServices = landlordServices;
+            _propertyTypeServices = propertyTypeServices;
             _paymentServices = paymentServices;
-            _tenantServices = tenantServices;
             _propertyServices = propertyServices;
             _leaseServices = leaseServices;
             _environment = environment;
         }
 
-
-        public IActionResult Index()
+        private string GetUserId()
         {
-            var n = _landlordServices.GetSingleLandlordById(1);
+            var identity = (ClaimsIdentity)User.Identity;
+            var claims = identity.Claims.ToList();
 
-            List<Property> pList = _propertyServices.GetPropertiesByLandlordId(n.Id);
+            return claims[0].Value;
+        }
 
-            var model = new LandlordPropertyLeasePaymentViewModel();
-            model.Landlord = n;
-            model.PropertyList = pList;
-            
+        public async Task<IActionResult> Index()
+        {
+            var landlord = await GetApplicationUser();
+            var model = new LandlordPropertyViewModel();
 
-            //List<Lease> leaseList = new List<Lease>();
-            //foreach (var p in pList)
-            //{
-            //    leaseList.Add(_leaseServices.GetLeaseByPropertyAndTenantId(p.Id));
-            //}
-
-            //model.LeaseList = leaseList;
+            model.Landlord = landlord;
+            model.PropertyList = _propertyServices.GetPropertiesByLandlordId(model.Landlord.Id);
+            model.PropertyTypes = new SelectList(_propertyTypeServices.GetPropertyTypes(), "Id", "Description");
 
             return View(model);
         }
 
-        public IActionResult Property(int id)
+        public async Task<IActionResult> Property(int id)
         {
             var model = new PropertyViewModel();
             model.Property = _propertyServices.GetSinglePropertyById(id);
-            model.Landlord = _landlordServices.GetSingleLandlordById(model.Property.LandlordId);
-            model.Tenant = _tenantServices.GetSingleTenantById(model.Property.CurrentTenantId);
+            model.Landlord = await GetApplicationUser();
+
+            model.Tenant = model.Property.CurrentTenantId != null ? await _userManager.FindByIdAsync(model.Property.CurrentTenantId) : null;
             model.Payments = _paymentServices.GetPaymentsByPropertyID(model.Property.Id);
 
             return View(model);
@@ -81,7 +79,7 @@ namespace EZRent.WebUI.Controllers
                 Property newProperty = viewModel.Property;
                 IFormFile file = viewModel.File;
 
-                if(file.Length > 0) //weight of file (kb, mb, etc)
+                if(file != null && file.Length > 0) //weight of file (kb, mb, etc)
                 {
                     // 
                     string storageFolder = Path.Combine(_environment.WebRootPath, "images/properties");
@@ -94,12 +92,9 @@ namespace EZRent.WebUI.Controllers
                     //now image is stored in images/properties folder
                     newProperty.Image = $"images/properties/{file.FileName}";
 
-                    _propertyServices.CreateProperty(newProperty);
                 }
-                else
-                {
-                    newProperty.Image = "http://www.placehold.it/300x300";
-                }
+                _propertyServices.CreateProperty(newProperty);
+               
             }
 
             return RedirectToAction("index");

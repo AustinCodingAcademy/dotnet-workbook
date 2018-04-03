@@ -1,7 +1,6 @@
 ﻿using EZRent.Data.Database;
 using EZRent.Domain.Models;
 using EZRent.Service.Implementation.EFCore;
-using EZRent.Service.Implementation.Mock;
 using EZRent.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +25,6 @@ namespace EZRent.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBankServices, EFCoreBankServices>();
-            services.AddScoped<ILandlordServices, MockLandlordServices>();
             services.AddScoped<ILeaseServices, EFCoreLeaseServices>();
             services.AddScoped<ILeaseTypeServices, EFCoreLeaseTypeServices>();
             services.AddScoped<IMaintenanceServices, EFCoreMaintenanceServices>();
@@ -35,7 +33,6 @@ namespace EZRent.WebUI
             services.AddScoped<IPaymentStatusServices, EFCorePaymentStatusServices>();
             services.AddScoped<IPropertyServices, EFCorePropertyServices>();
             services.AddScoped<IPropertyTypeServices, EFCorePropertyTypeServices>();
-            services.AddScoped<ITenantServices, MockTenantServices>();
 
             //Connection String to SQL Server and DB Catalog
             services.AddDbContext<ApplicationUserDbContext>(options =>

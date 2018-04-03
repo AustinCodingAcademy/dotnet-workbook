@@ -46,12 +46,12 @@ namespace EZRent.Service.Implementation.Mock
             return _context;
         }
 
-        public List<Property> GetPropertiesByLandlordId(int id)
+        public List<Property> GetPropertiesByLandlordId(string id)
         {
             return _context.Where(b => b.LandlordId == id).ToList();
         }
 
-        public Property GetPropertyByTenantId(int id)
+        public Property GetPropertyByTenantId(string id)
         {
             throw new System.NotImplementedException();
         }

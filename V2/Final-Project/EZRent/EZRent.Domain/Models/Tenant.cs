@@ -6,7 +6,7 @@ namespace EZRent.Domain.Models
 {
     public class Tenant
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int MonthlyIncome { get; set; }

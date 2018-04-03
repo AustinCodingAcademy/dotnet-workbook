@@ -19,6 +19,6 @@ namespace EZRent.Domain.Models
         public int RoutingNumber { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

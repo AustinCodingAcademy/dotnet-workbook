@@ -7,11 +7,13 @@ using EZRent.WebUI.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using EZRent.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace EZRent.WebUI.Controllers
 {
     [Authorize(Roles ="Tenant")]
-    public class TenantController : Controller
+    public class TenantController : BaseController
     {
         private ITenantServices _tenantServices;
         private ILeaseServices _leaseServices;
@@ -23,7 +25,8 @@ namespace EZRent.WebUI.Controllers
             ILeaseServices leaseServices,
             IPropertyServices propertyServices,
             IBankServices bankServices,
-            IPaymentServices paymentServices)
+            IPaymentServices paymentServices,
+            UserManager<ApplicationUser> userManager) : base(userManager)
         {
             _tenantServices = tenantServices;
             _leaseServices = leaseServices;
@@ -32,33 +35,29 @@ namespace EZRent.WebUI.Controllers
             _paymentServices = paymentServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            // figure out who the tenant is
-            var t = _tenantServices.GetSingleTenantById(1);
-
-
-            // lease - active
-           // var l = _leaseServices.GetLeaseByTenantId(t.Id);
-
-            // tenants' property
+            var t = await GetApplicationUser();
             var p = _propertyServices.GetPropertyByTenantId(t.Id);
+            var l = _leaseServices.GetLeaseByPropertyAndTenantId(p.Id, t.Id);
 
-            var model = new TenantPropertyViewModel();
-            model.Property = p;
-            model.Tenant = t;
+            var model = new TenantPropertyViewModel()
+            {
+                Property = p,
+                Tenant = t
+            };
             
             return View(model);
         }
 
-        public IActionResult Bank(int id)
+        public async Task<IActionResult> Bank(string id)
         {
-            var tenant = _tenantServices.GetSingleTenantById(id);
-            List<Bank> banks = _bankServices.GetBanksByTenantId(id);
+            var t = await GetApplicationUser();
 
+            List<Bank> banks = _bankServices.GetBanksByTenantId(t.Id);
             var viewModel = new TenantBanksViewModel();
             viewModel.Banks = banks;
-            viewModel.Tenant = tenant;
+            viewModel.Tenant = t;
             return View(viewModel);
         }
 
@@ -68,11 +67,13 @@ namespace EZRent.WebUI.Controllers
             return RedirectToAction("Bank", new { id = newBank.UserId });
         }
 
-        public IActionResult Payment(int id)
+        public async Task<IActionResult> Payments()
         {
-            var payment = _paymentServices.GetPaymentsByPropertyID(id);
+            var t = await GetApplicationUser();
+            var p = _propertyServices.GetPropertyByTenantId(t.Id);
+            var payments = _paymentServices.GetPaymentsByPropertyID(p.Id);
 
-            return View(payment);
+            return View(payments);
         }
     }
 }

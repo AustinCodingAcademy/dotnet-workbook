@@ -13,21 +13,33 @@ namespace EZRent.Data.Seeding
         {
             appUserDbContext.Database.Migrate();
             eZRentDbContext.Database.Migrate();
-            // if there are no roles
+
             if (!appUserDbContext.Roles.Any())
             {
-                // add them
                 AddRoles(appUserDbContext);
             }
 
-            // Lease type
             if (!eZRentDbContext.LeaseTypes.Any())
             {
                 AddLeaseType(eZRentDbContext);
             }
+
+            if (!eZRentDbContext.PropertyTypes.Any())
+            {
+                AddPropertyTypes(eZRentDbContext);
+            }
+
+            if (!eZRentDbContext.PaymentStatuses.Any())
+            {
+                AddPaymentStatuses(eZRentDbContext);
+            }
+
+            if (!eZRentDbContext.MaintenanceStatuses.Any())
+            {
+                AddMaintenanceStatus(eZRentDbContext);
+            }
         }
 
-        // Lease Type
         private static void AddLeaseType(EZRentDbContext eZRentDbContext)
         {
             string[] types = new string[] { "Month-to-Month", "Fixed Term" };
@@ -44,7 +56,6 @@ namespace EZRent.Data.Seeding
             eZRentDbContext.SaveChanges();
         }
 
-        // Maintenance Status
         private static void AddMaintenanceStatus(EZRentDbContext eZRentDbContext)
         {
             string[] types = new string[] { "New", "Fixed","In-Progress", "Not a defect" };
@@ -60,10 +71,41 @@ namespace EZRent.Data.Seeding
             }
             eZRentDbContext.SaveChanges();
         }
-        // Payment Status
 
-        // Property Type
 
+        private static void AddPaymentStatuses(EZRentDbContext eZRentDbContext)
+        {
+            string[] statuses = new string[] { "Paid", "Processing", "Due", "Overdue" };
+
+            foreach(var p in statuses)
+            {
+                var newPaymentStatus = new PaymentStatus
+                {
+                    Description = p
+                };
+
+                eZRentDbContext.PaymentStatuses.Add(newPaymentStatus);
+            }
+
+            eZRentDbContext.SaveChanges();
+        }
+
+
+        private static void AddPropertyTypes(EZRentDbContext ezRentDbContext)
+        {
+            string[] types = new string[] { "Apartment", "Single Family Home", "Duplex/Triplex/Townhouse", "Mobile", "Dormitory", "Commercial" };
+
+            foreach(var t in types)
+            {
+                var newPropertyType = new PropertyType
+                {
+                    Description = t
+                };
+
+                ezRentDbContext.PropertyTypes.Add(newPropertyType);
+            }
+            ezRentDbContext.SaveChanges();
+        }
 
         public static void AddRoles(ApplicationUserDbContext appUserDbContext)
         {

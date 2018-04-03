@@ -19,15 +19,13 @@ namespace EZRent.Service.Implementation.Mock
 
         public Landlord CreateLandlord(Landlord newLandlord)
         {
-            int largestId = _context.OrderByDescending(b => b.Id).FirstOrDefault().Id;
-
-            newLandlord.Id = largestId + 1;
+            
             _context.Add(newLandlord);
 
             return newLandlord;
         }
 
-        public bool DeleteLandlord(int id)
+        public bool DeleteLandlord(string id)
         {
             Landlord toBeDeletedLandlord = GetSingleLandlordById(id);
             _context.Remove(toBeDeletedLandlord);
@@ -48,7 +46,7 @@ namespace EZRent.Service.Implementation.Mock
             return _context;
         }
 
-        public Landlord GetSingleLandlordById(int id)
+        public Landlord GetSingleLandlordById(string id)
         {
             return _context.SingleOrDefault(b => b.Id == id);
         }

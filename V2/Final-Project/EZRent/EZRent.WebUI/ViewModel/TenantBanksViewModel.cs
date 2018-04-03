@@ -8,7 +8,7 @@ namespace EZRent.WebUI.ViewModel
 {
     public class TenantBanksViewModel
     {
-        public Tenant Tenant { get; set; }
+        public ApplicationUser Tenant { get; set; }
         public List<Bank> Banks { get; set; }
 
     }

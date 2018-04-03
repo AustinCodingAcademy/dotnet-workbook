@@ -7,6 +7,6 @@ namespace EZRent.Service.Interface
 {
     public interface IPropertyTypeServices
     {
-        PropertyType GetSinglePropertyTypeById(int id);
+        List<PropertyType> GetPropertyTypes();
     }
 }

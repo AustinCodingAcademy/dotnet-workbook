@@ -24,7 +24,7 @@ namespace EZRent.Service.Implementation.Mock
             return newLease;
         }
 
-        public bool DeleteLease(int propertyId, int tenantId)
+        public bool DeleteLease(int propertyId, string tenantId)
         {
             Lease toBeDeletedLease = GetLeaseByPropertyAndTenantId(propertyId, tenantId);
             _context.Remove(toBeDeletedLease);
@@ -40,7 +40,7 @@ namespace EZRent.Service.Implementation.Mock
             }
         }
 
-        public Lease GetLeaseByPropertyAndTenantId(int propertyId, int tenantId)
+        public Lease GetLeaseByPropertyAndTenantId(int propertyId, string tenantId)
         {
             return _context.SingleOrDefault(l => l.PropertyId == propertyId && l.TenantId == tenantId);
         }
@@ -56,7 +56,7 @@ namespace EZRent.Service.Implementation.Mock
         }
 
     
-        public Lease GetLeaseByTenantId(int tenantId)
+        public Lease GetLeaseByTenantId(string tenantId)
         {
             return _context.Where(b => b.End >= DateTime.Now).SingleOrDefault(g => g.TenantId == tenantId);
         }

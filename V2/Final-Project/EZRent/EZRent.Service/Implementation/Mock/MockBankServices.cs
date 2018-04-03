@@ -48,7 +48,7 @@ namespace EZRent.Service.Implementation.Mock
             return _context.SingleOrDefault(b => b.Id == id);
         }
 
-        public List<Bank> GetBanksByTenantId(int id)
+        public List<Bank> GetBanksByTenantId(string id)
         {
             return _context.Where(b => b.UserId == id).ToList();
         }

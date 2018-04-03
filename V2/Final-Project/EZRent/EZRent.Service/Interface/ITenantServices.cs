@@ -8,7 +8,7 @@ namespace EZRent.Service.Interface
     public interface ITenantServices
     {
         List<Tenant> GetAllTenants();
-        Tenant GetSingleTenantById(int id);
+        Tenant GetSingleTenantById(string id);
 
         // Create
         Tenant CreateTenant(Tenant newTenant);
@@ -16,6 +16,6 @@ namespace EZRent.Service.Interface
         // Update
         Tenant UpdateTenant(Tenant updatedTenant);
         // Delete
-        bool DeleteTenant(int id);
+        bool DeleteTenant(string id);
     }
 }

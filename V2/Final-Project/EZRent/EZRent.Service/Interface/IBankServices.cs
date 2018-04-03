@@ -7,7 +7,7 @@ namespace EZRent.Service.Interface
     {
         // Read
         Bank GetSingleBankById(int id);
-        List<Bank> GetBanksByTenantId(int id);
+        List<Bank> GetBanksByTenantId(string id);
 
         // Create
         Bank CreateBank(Bank newBank);

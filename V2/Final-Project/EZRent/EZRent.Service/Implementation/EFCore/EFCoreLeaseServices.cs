@@ -24,7 +24,7 @@ namespace EZRent.Service.Implementation.EFCore
             return newLease;
         }
 
-        public bool DeleteLease(int propertyId, int tenantId)
+        public bool DeleteLease(int propertyId, string tenantId)
         {
             var lease = _dbcontext.Leases.Find(propertyId, tenantId);
             _dbcontext.Leases.Remove(lease);
@@ -37,7 +37,7 @@ namespace EZRent.Service.Implementation.EFCore
             return false;
         }
 
-        public Lease GetLeaseByPropertyAndTenantId(int propertyId, int tenantId)
+        public Lease GetLeaseByPropertyAndTenantId(int propertyId, string tenantId)
         {
             return _dbcontext.Leases.Find(propertyId, tenantId);
         }

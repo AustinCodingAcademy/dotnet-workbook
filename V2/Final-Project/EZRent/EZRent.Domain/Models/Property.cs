@@ -25,8 +25,8 @@ namespace EZRent.Domain.Models
         public int PropertyTypeId { get; set; }
 
         [Required]
-        public int LandlordId { get; set; }
-        public int CurrentTenantId { get; set; }
+        public string LandlordId { get; set; }
+        public string CurrentTenantId { get; set; }
 
         public string Image { get; set; }
         // navigation

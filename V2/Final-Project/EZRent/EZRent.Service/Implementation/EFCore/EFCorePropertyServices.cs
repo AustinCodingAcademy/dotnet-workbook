@@ -38,12 +38,12 @@ namespace EZRent.Service.Implementation.EFCore
             return false;
         }
 
-        public List<Property> GetPropertiesByLandlordId(int userId)
+        public List<Property> GetPropertiesByLandlordId(string userId)
             => _dbContext.Properties
             .Where(p => p.LandlordId == userId)
             .ToList();
 
-        public Property GetPropertyByTenantId(int id)
+        public Property GetPropertyByTenantId(string id)
             => _dbContext.Properties.SingleOrDefault(p => p.CurrentTenantId == id);
 
         public Property GetSinglePropertyById(int id) => _dbContext.Properties.Find(id);

@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Implementation\Mock\**" />
+    <EmbeddedResource Remove="Implementation\Mock\**" />
+    <None Remove="Implementation\Mock\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EZRent.Data\EZRent.Data.csproj" />
     <ProjectReference Include="..\EZRent.Domain\EZRent.Domain.csproj" />
   </ItemGroup>
